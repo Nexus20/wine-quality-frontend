@@ -1,0 +1,13 @@
+<app-header></app-header>
+<main>
+    <div class="container pt-3">
+        <div class="row">
+            <ng-container *ngIf="userFullName !== undefined">
+                <h1 class="col-12 text-center">{{'WELCOME' | translate}}, {{userFullName}}</h1>
+            </ng-container>
+        </div>
+        <div class="row">
+            <div class="col-12"></div>
+        </div>
+    </div>
+</main>

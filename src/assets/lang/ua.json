@@ -1,0 +1,133 @@
+{
+    "HELLO": "Привіт",
+    "WELCOME": "Вітаємо",
+    "common": {
+        "details": "Детальніше",
+        "add": "Додати",
+        "edit": "Редагувати",
+        "apply": "Зберегти зміни"
+    },
+    "header": {
+        "brand": "Health tracking system",
+        "home": "На головну",
+        "login": "Вхід",
+        "logout": "Вихід",
+        "profile": "Мій профіль",
+        "hospitals": "Мед. заклади",
+        "doctors": "Лікарі",
+        "patients": "Пацієнти"
+    },
+    "user": {
+        "firstname": "Ім'я",
+        "lastname": "Прізвище",
+        "patronymic": "По батькові",
+        "phone": "Телефон",
+        "email": "Email",
+        "dob": "Дата народження",
+        "password": "Пароль"
+    },
+    "login": {
+        "header": "Увійти до особистого кабінету",
+        "email": "Електронна пошта",
+        "password": "Пароль",
+        "submit": "Увійти"
+    },
+    "profile": {
+        "personal": {
+            "header": "Ваші особісті дані",
+            "email": "Email",
+            "phone": "Телефон",
+            "dob": "Дата народження"
+        },
+        "hospital": {
+            "header": "Ваш медичний заклад",
+            "name": "Назва",
+            "address": "Адреса"
+        },
+        "patients": {
+            "header": "Ваші пацієнти"
+        },
+        "patient-doctor": {
+            "header": "Ваш лікар",
+            "no-doctor-alert": "Здається, вас ще не записали до жодного лікаря. Або, можливо, вас переводять до іншого лікаря."
+        },
+        "health-measurements": {
+            "header": "Ваші показники здоров'я",
+            "heart-rate": "ЧСС"
+        },
+        "patient-caretaker": {
+            "header": "Ваш доглядач",
+            "no-caretaker-warning": "У вас ще немає доглядача."
+        }
+    },
+    "patient-profile": {
+        "header": "Профіль пацієнта",
+        "health-measurements": {
+            "header": "Показники здоров'я",
+            "heart-rate": "ЧСС"
+        },
+        "patient-doctor": {
+            "header": "Лікар пацієнта",
+            "change-doctor": "Змінити лікаря",
+            "no-doctor-warning": "Цей пацієнт ще не був призначений до жодного лікаря.",
+            "add-to-doctor": "Призначити лікаря пацієнтові"
+        },
+        "patient-caretaker": {
+            "header": "Доглядач пацієнта",
+            "change-caretaker": "Змінити доглядача",
+            "no-caretaker-warning": "У цього пацієнта поки що не має доглядача.",
+            "add-caretaker": "Додати доглядача"
+        }
+    },
+    "patients": {
+        "header": "Пацієнти"
+    },
+    "patient-create": {
+        "header": "Додати нового пацієнта"
+    },
+    "hospitals": {
+        "header": "Медічні заклади",
+        "doctors-count": "Лікарів",
+        "patients-count": "Пацієнтів"
+    },
+    "hospital-add": {
+        "header": "Додати новий медичний заклад",
+        "name": "Назва мед. закладу",
+        "address": "Адреса мед. закладу",
+        "submit": "Додати новий мед. заклад"
+    },
+    "hospital-view": {
+        "header": "Інформація про медичний заклад",
+        "address": "Адреса",
+        "administrators": "Адміністрація"
+    },
+    "hospital-administrators": {
+        "header": "Адміністрація медичного закладу"
+    },
+    "hospital-administrator-view": {
+        "header": "Профіль адміністратора медичного закладу"
+    },
+    "hospital-administrator-edit": {
+        "header": "Редагувати профіль адміністратора медичного закладу"
+    },
+    "hospital-administrator-create": {
+        "header": "Створити новий профіль адміністратора медичного закладу"
+    },
+    "doctors": {
+        "header": "Лікарі"
+    },
+    "doctor-view": {
+        "header": "Профіль лікаря"
+    },
+    "doctor-create": {
+        "header": "Створити новий профіль лікаря"
+    },
+    "doctor-edit": {
+        "header": "Редагувати профіль лікаря"
+    },
+    "roles": {
+        "root": "root",
+        "doctor": "лікар",
+        "patient": "пацієнт"
+    }
+}

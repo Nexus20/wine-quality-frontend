@@ -1,0 +1,133 @@
+{
+    "HELLO": "hello",
+    "WELCOME": "Welcome",
+    "common": {
+        "details": "Details",
+        "add": "Add new",
+        "edit": "Edit",
+        "apply": "Apply changes"
+    },
+    "header": {
+        "brand": "Health tracking system",
+        "home": "Home",
+        "login": "Login",
+        "logout": "Logout",
+        "profile": "Profile",
+        "hospitals": "Hospitals",
+        "doctors": "Doctors",
+        "patients": "Patients"
+    },
+    "user": {
+        "firstname": "Firstname",
+        "lastname": "Lastname",
+        "patronymic": "Patronymic",
+        "phone": "Phone",
+        "email": "Email",
+        "dob": "Date of birth",
+        "password": "Password"
+    },
+    "login": {
+        "header": "Log into your personal account",
+        "email": "Email",
+        "password": "Password",
+        "submit": "Log in"
+    },
+    "profile": {
+        "personal": {
+            "header": "Your personal information",
+            "email": "Email",
+            "phone": "Phone",
+            "dob": "Birth date"
+        },
+        "hospital": {
+            "header": "Your hospital info",
+            "name": "Name",
+        "address": "Address"
+        },
+        "patients": {
+            "header": "Your patients"
+        },
+        "patient-doctor": {
+            "header": "Your doctor",
+            "no-doctor-alert": "It looks like you haven't been assigned to any doctor yet. Or, perhaps you are being transferred to another doctor."
+        },
+        "health-measurements": {
+            "header": "Your health measurements",
+            "heart-rate": "Heart rate"
+        },
+        "patient-caretaker": {
+            "header": "Your caretaker",
+            "no-caretaker-warning": "You don't have a caretaker yet."
+        }
+    },
+    "patient-profile": {
+        "header": "Patient profile",
+        "health-measurements": {
+            "header": "Patient's measurements",
+            "heart-rate": "Heart rate"
+        },
+        "patient-doctor": {
+            "header": "Patient's doctor",
+            "change-doctor": "Change doctor",
+            "no-doctor-warning": "This patient hasn't been assigned to any doctor yet.",
+            "add-to-doctor": "Assign doctor to the patient"
+        },
+        "patient-caretaker": {
+            "header": "Patient's caretaker",
+            "change-caretaker": "Change caretaker",
+            "no-caretaker-warning": "This patient doesn't have a caretaker yet.",
+            "add-caretaker": "Assign caretaker to the patient"
+        }
+    },
+    "patients": {
+        "header": "Patients"
+    },
+    "patient-create": {
+        "header": "Add new patient"
+    },
+    "hospitals": {
+        "header": "Hospitals",
+        "doctors-count": "Doctors",
+        "patients-count": "Patients"
+    },
+    "hospital-add": {
+        "header": "Add new hospital",
+        "name": "Hospital name",
+        "address": "Hospital address",
+        "submit": "Add new hospital"
+    },
+    "hospital-view": {
+        "header": "Hospital info",
+        "address": "Address",
+        "administrators": "Administrators"
+    },
+    "hospital-administrators": {
+        "header": "Hospital administrators"
+    },
+    "hospital-administrator-view": {
+        "header": "Hospital administrator profile"
+    },
+    "hospital-administrator-edit": {
+        "header": "Edit hospital administrator profile"
+    },
+    "hospital-administrator-create": {
+        "header": "Create new hospital administrator profile"
+    },
+    "doctors": {
+        "header": "Doctors"
+    },
+    "doctor-view": {
+        "header": "Doctor profile"
+    },
+    "doctor-create": {
+        "header": "Add new doctor"
+    },
+    "doctor-edit": {
+        "header": "Doctor edit"
+    },
+    "roles": {
+        "root": "root",
+        "doctor": "doctor",
+        "patient": "patient"
+    }
+}
