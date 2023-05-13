@@ -1,0 +1,13 @@
+.phase-list {
+    border: 1px solid #ccc;
+    min-height: 200px;
+    padding: 16px;
+
+    .phase-item {
+        background-color: #f0f0f0;
+        border: 1px solid #ccc;
+        cursor: move;
+        margin-bottom: 16px;
+        padding: 8px;
+    }
+}

@@ -1,8 +1,12 @@
-import {ResolveFn} from "@angular/router";
+import {ActivatedRouteSnapshot, ResolveFn} from "@angular/router";
 import {inject} from "@angular/core";
 import {GrapeSortsService} from "../services/grape-sorts.service";
-import {IGrapeSortResult} from "../models/grape-sort-result";
+import {IGrapeSortPhaseResult, IGrapeSortResult} from "../models/grape-sort-result";
 
 export const grapeSortsResolver: ResolveFn<IGrapeSortResult[]> = () => {
     return inject(GrapeSortsService).get();
 };
+
+export const grapeSortPhasesResolver: ResolveFn<IGrapeSortPhaseResult[]> = (route: ActivatedRouteSnapshot) => {
+    return inject(GrapeSortsService).getPhases(route.paramMap.get('id')!);
+}

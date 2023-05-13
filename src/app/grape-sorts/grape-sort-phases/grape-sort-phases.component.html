@@ -1,0 +1,47 @@
+<app-header></app-header>
+<main>
+    <div class="container">
+        <div class="row mb-3">
+            <div class="col-6">
+                <div class="available-phases">
+                    <h2>All available phases</h2>
+                    <div cdkDropList [cdkDropListData]="availablePhases" class="phase-list"
+                         (cdkDropListDropped)="drop($event)" #listOne="cdkDropList"
+                         [cdkDropListConnectedTo]="[listTwo]">
+                        <mat-list>
+                            <mat-list-item *ngFor="let phase of availablePhases" cdkDrag class="phase-item">
+                                {{ phase.name }}
+                            </mat-list-item>
+                        </mat-list>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="grape-sort-phases">
+                    <h2>Grape sort phases</h2>
+                    <div cdkDropList [cdkDropListData]="grapeSortPhases" class="phase-list"
+                         (cdkDropListDropped)="drop($event)" #listTwo="cdkDropList" [cdkDropListConnectedTo]="[listOne]">
+                        <mat-list>
+                            <mat-list-item *ngFor="let grapeSortPhase of grapeSortPhases" cdkDrag class="phase-item">
+                                {{ grapeSortPhase.name }}
+                                <button mat-icon-button color="warn" (click)="removePhase(grapeSortPhase)">
+                                    <mat-icon>delete</mat-icon>
+                                </button>
+                            </mat-list-item>
+                        </mat-list>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="actions">
+                    <button mat-raised-button color="primary" (click)="saveGrapeSort()" [disabled]="grapeSortPhases.length === 0 || isSaving">
+                        {{ isSaving ? 'Saving...' : 'Save' }}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
