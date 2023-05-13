@@ -22,7 +22,11 @@ const routes: Routes = [
     {
         path: 'parameters',
         loadChildren: () => import('./parameters/parameters.module').then(m => m.ParametersModule)
-    }
+    },
+    {
+        path: 'grape-sorts',
+        loadChildren: () => import('./grape-sorts/grape-sorts.module').then(m => m.GrapeSortsModule)
+    },
 ];
 
 @NgModule({
