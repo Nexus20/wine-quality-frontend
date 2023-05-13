@@ -32,4 +32,12 @@ export class PhasesService {
     public getById = (id: string) => {
         return this.httpClient.get<IPhaseDetailResult>(`${this.api}processPhase/${id}`);
     }
+
+    public addParameters(processPhaseId: string, processParameterIds: any[]) {
+        return this.httpClient.post(`${this.api}processPhase/add_parameters`, { processPhaseId, processParameterIds });
+    }
+
+    public removeParameters(processPhaseId: string, processParameterIds: any[]) {
+        return this.httpClient.post(`${this.api}processPhase/remove_parameters`, { processPhaseId, processParameterIds });
+    }
 }

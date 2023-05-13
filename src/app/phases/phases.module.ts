@@ -15,6 +15,8 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatDialogModule} from "@angular/material/dialog";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatInputModule} from "@angular/material/input";
+import { PhaseParametersComponent } from './phase-parameters/phase-parameters.component';
+import {MatListModule} from "@angular/material/list";
 
 @NgModule({
     declarations: [
@@ -22,7 +24,8 @@ import {MatInputModule} from "@angular/material/input";
         PhaseDetailsComponent,
         PhaseDeleteComponent,
         PhaseEditComponent,
-        PhaseCreateComponent
+        PhaseCreateComponent,
+        PhaseParametersComponent
     ],
     imports: [
         CommonModule,
@@ -42,6 +45,8 @@ import {MatInputModule} from "@angular/material/input";
         MatDialogModule,
         ReactiveFormsModule,
         MatInputModule,
+        MatListModule,
+        MatListModule,
     ]
 })
 export class PhasesModule {

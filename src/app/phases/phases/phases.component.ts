@@ -7,6 +7,7 @@ import {PhaseDeleteComponent} from "../phase-delete/phase-delete.component";
 import {PhaseDetailsComponent} from "../phase-details/phase-details.component";
 import {MatDialog} from "@angular/material/dialog";
 import {PhasesService} from "../services/phases.service";
+import {PhaseParametersComponent} from "../phase-parameters/phase-parameters.component";
 
 @Component({
     selector: 'app-phases',
@@ -70,5 +71,12 @@ export class PhasesComponent implements OnInit {
         this.phasesService.get().subscribe((phases) => {
             this.phases = phases;
         })
+    }
+
+    openParametersDialog(phase: IPhaseResult): void {
+        this.dialog.open(PhaseParametersComponent, {
+            width: '600px',
+            data: phase.id
+        });
     }
 }
