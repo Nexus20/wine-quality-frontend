@@ -1,0 +1,14 @@
+<h1 mat-dialog-title>Phase Details</h1>
+<div mat-dialog-content>
+    <p><strong>Phase Name:</strong> {{ phaseDetail.name }}</p>
+    <div *ngIf="phaseDetail.parameters.length > 0">
+        <p><strong>Parameters:</strong></p>
+        <ul>
+            <li *ngFor="let parameter of phaseDetail.parameters">{{ parameter.name }}</li>
+        </ul>
+    </div>
+    <p *ngIf="phaseDetail.parameters.length === 0">No parameters.</p>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="close()">Close</button>
+</div>

@@ -10,6 +10,11 @@ import { PhaseDetailsComponent } from './phase-details/phase-details.component';
 import { PhaseDeleteComponent } from './phase-delete/phase-delete.component';
 import { PhaseEditComponent } from './phase-edit/phase-edit.component';
 import { PhaseCreateComponent } from './phase-create/phase-create.component';
+import {MatButtonModule} from "@angular/material/button";
+import {MatIconModule} from "@angular/material/icon";
+import {MatDialogModule} from "@angular/material/dialog";
+import {ReactiveFormsModule} from "@angular/forms";
+import {MatInputModule} from "@angular/material/input";
 
 @NgModule({
     declarations: [
@@ -32,6 +37,11 @@ import { PhaseCreateComponent } from './phase-create/phase-create.component';
                 }
             },
         ]),
+        MatButtonModule,
+        MatIconModule,
+        MatDialogModule,
+        ReactiveFormsModule,
+        MatInputModule,
     ]
 })
 export class PhasesModule {

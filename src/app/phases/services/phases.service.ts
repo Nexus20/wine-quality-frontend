@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {environment} from "../../../environments/environment";
 import {HttpClient} from "@angular/common/http";
-import {IPhaseResult} from "../models/phase-result";
+import {IPhaseDetailResult, IPhaseResult} from "../models/phase-result";
 
 @Injectable({
   providedIn: 'root'
@@ -15,5 +15,21 @@ export class PhasesService {
 
     public get = (queryParams?: {}) => {
         return this.httpClient.get<IPhaseResult[]>(`${this.api}processPhase`, {params: queryParams});
+    }
+
+    public delete = (id: string) => {
+        return this.httpClient.delete(`${this.api}processPhase/${id}`);
+    }
+
+    public create = (phase: { name: string }) => {
+        return this.httpClient.post<IPhaseResult>(`${this.api}processPhase`, phase);
+    }
+
+    public update = (phase: { Id: string; Name: string }) => {
+        return this.httpClient.put(`${this.api}processPhase/${phase.Id}`, phase);
+    }
+
+    public getById = (id: string) => {
+        return this.httpClient.get<IPhaseDetailResult>(`${this.api}processPhase/${id}`);
     }
 }
