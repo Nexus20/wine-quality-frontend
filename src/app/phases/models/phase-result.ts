@@ -12,3 +12,8 @@ export interface IPhaseDetailResult extends IBaseResult {
 export interface IParameterResult extends IBaseResult {
     name: string;
 }
+
+export interface IParameterDetailResult extends IBaseResult {
+    name: string;
+    phases: IPhaseResult[];
+}
