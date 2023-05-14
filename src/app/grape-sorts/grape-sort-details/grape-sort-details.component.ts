@@ -1,15 +1,14 @@
 import {Component, OnInit} from '@angular/core';
-import {
-    IGrapeSortDetailsResult,
-    IGrapeSortPhaseResult,
-    IGrapeSortProcessPhaseParameterStandardResult
-} from "../models/grape-sort-result";
+import {IGrapeSortDetailsResult, IGrapeSortPhaseResult} from "../models/grape-sort-result";
 import {MatDialog} from "@angular/material/dialog";
 import {ActivatedRoute} from "@angular/router";
 import {GrapeSortsService} from "../services/grape-sorts.service";
 import {
     GrapeSortPhaseStandardsSettingsComponent
 } from "../grape-sort-phase-standards-settings/grape-sort-phase-standards-settings.component";
+import {
+    WineMaterialBatchCreateModalComponent
+} from "../wine-material-batch-create-modal/wine-material-batch-create-modal.component";
 
 @Component({
     selector: 'app-grape-sort-details',
@@ -47,6 +46,21 @@ export class GrapeSortDetailsComponent implements OnInit {
             if (result) {
                 // Обработка результатов после закрытия модального окна, если необходимо
             }
+        });
+    }
+
+    openCreateWineMaterialBatchDialog() {
+        const dialogRef = this.dialog.open(WineMaterialBatchCreateModalComponent, {
+            data: {
+                grapeSortId: this.grapeSortDetails.id
+            },
+            width: '600px',
+        });
+
+        dialogRef.afterClosed().subscribe((newWineMaterialBatch) => {
+
+            if (newWineMaterialBatch)
+                this.grapeSortDetails.wineMaterialBatches = [...this.grapeSortDetails.wineMaterialBatches, newWineMaterialBatch];
         });
     }
 }

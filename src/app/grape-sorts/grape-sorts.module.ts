@@ -22,6 +22,8 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 import {MatTabsModule} from "@angular/material/tabs";
 import { GrapeSortPhaseStandardsSettingsComponent } from './grape-sort-phase-standards-settings/grape-sort-phase-standards-settings.component';
 import {MatSelectModule} from "@angular/material/select";
+import { WineMaterialBatchCreateModalComponent } from './wine-material-batch-create-modal/wine-material-batch-create-modal.component';
+import {MatDatepickerModule} from "@angular/material/datepicker";
 
 
 @NgModule({
@@ -32,7 +34,8 @@ import {MatSelectModule} from "@angular/material/select";
         GrapeSortEditComponent,
         GrapeSortDetailsComponent,
         GrapeSortPhasesComponent,
-        GrapeSortPhaseStandardsSettingsComponent
+        GrapeSortPhaseStandardsSettingsComponent,
+        WineMaterialBatchCreateModalComponent
     ],
     imports: [
         CommonModule,
@@ -73,6 +76,7 @@ import {MatSelectModule} from "@angular/material/select";
         MatTabsModule,
         MatSelectModule,
         FormsModule,
+        MatDatepickerModule,
     ],
     providers: [MatSnackBar]
 })
