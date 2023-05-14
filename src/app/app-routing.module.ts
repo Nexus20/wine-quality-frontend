@@ -27,6 +27,10 @@ const routes: Routes = [
         path: 'grape-sorts',
         loadChildren: () => import('./grape-sorts/grape-sorts.module').then(m => m.GrapeSortsModule)
     },
+    {
+        path: 'wine-material-batches',
+        loadChildren: () => import('./wine-material-batches/wine-material-batches.module').then(m => m.WineMaterialBatchesModule)
+    }
 ];
 
 @NgModule({

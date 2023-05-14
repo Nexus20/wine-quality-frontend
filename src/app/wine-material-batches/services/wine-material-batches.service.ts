@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {environment} from "../../../environments/environment";
 import {HttpClient} from "@angular/common/http";
 import {IWineMaterialBatchResult} from "../../grape-sorts/models/grape-sort-result";
+import {IWineMaterialBatchDetailsResult} from "../models/wine-material-batch-details-result";
 
 @Injectable({
     providedIn: 'root'
@@ -29,9 +30,9 @@ export class WineMaterialBatchesService {
         return this.httpClient.put(`${this.api}wineMaterialBatch/${wineMaterialBatch.id}`, wineMaterialBatch);
     }
 
-    // public getById = (id: string) => {
-    //     return this.httpClient.get<IWineMaterialBatchDetailsResult>(`${this.api}wineMaterialBatch/${id}`);
-    // }
+    public getById = (id: string) => {
+        return this.httpClient.get<IWineMaterialBatchDetailsResult>(`${this.api}wineMaterialBatch/${id}`);
+    }
     //
     // public getPhases = (id: string) => {
     //     return this.httpClient.get<IWineMaterialBatchPhaseResult[]>(`${this.api}wineMaterialBatch/${id}/phases`)
