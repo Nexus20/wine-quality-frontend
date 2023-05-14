@@ -3,7 +3,6 @@ import {MatDialog} from "@angular/material/dialog";
 import {ActivatedRoute} from "@angular/router";
 import {IGrapeSortResult} from "../models/grape-sort-result";
 import {GrapeSortsService} from "../services/grape-sorts.service";
-import {GrapeSortDetailsComponent} from "../grape-sort-details/grape-sort-details.component";
 import {GrapeSortDeleteComponent} from "../grape-sort-delete/grape-sort-delete.component";
 import {GrapeSortEditComponent} from "../grape-sort-edit/grape-sort-edit.component";
 import {GrapeSortCreateComponent} from "../grape-sort-create/grape-sort-create.component";
@@ -27,12 +26,6 @@ export class GrapeSortsComponent implements OnInit {
             this.grapeSorts = grapeSorts;
             console.log(grapeSorts);
         })
-    }
-
-    openDetailsDialog(grapeSortId: string): void {
-        this.grapeSortsService.getById(grapeSortId).subscribe(grapeSortDetail => {
-            this.dialog.open(GrapeSortDetailsComponent, {data: grapeSortDetail});
-        });
     }
 
     openDeleteDialog(grapeSort: IGrapeSortResult): void {

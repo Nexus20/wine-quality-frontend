@@ -1,3 +1,25 @@
-
+.grape-sort-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px;
+}
+.grape-sort-details .phases {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.grape-sort-details .phase-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+.grape-sort-details .wine-material-batches {
+  width: 100%;
+  max-width: 800px;
+}
 
 /*# sourceMappingURL=phases.component.css.map */

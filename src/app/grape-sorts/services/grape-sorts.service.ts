@@ -1,11 +1,15 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {environment} from "../../../environments/environment";
 import {HttpClient} from "@angular/common/http";
-import {IPhaseDetailResult, IPhaseResult} from "../../phases/models/phase-result";
-import {IGrapeSortPhaseResult} from "../models/grape-sort-result";
+import {
+    IGrapeSortDetailsResult,
+    IGrapeSortPhaseResult,
+    IGrapeSortResult,
+    IUpdateGrapeSortProcessPhaseParameterStandardsRequest
+} from "../models/grape-sort-result";
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class GrapeSortsService {
 
@@ -15,7 +19,7 @@ export class GrapeSortsService {
     }
 
     public get = (queryParams?: {}) => {
-        return this.httpClient.get<IPhaseResult[]>(`${this.api}grapeSort`, {params: queryParams});
+        return this.httpClient.get<IGrapeSortResult[]>(`${this.api}grapeSort`, {params: queryParams});
     }
 
     public delete = (id: string) => {
@@ -23,7 +27,7 @@ export class GrapeSortsService {
     }
 
     public create = (grapeSort: { name: string }) => {
-        return this.httpClient.post<IPhaseResult>(`${this.api}grapeSort`, grapeSort);
+        return this.httpClient.post<IGrapeSortResult>(`${this.api}grapeSort`, grapeSort);
     }
 
     public update = (grapeSort: { Id: string; Name: string }) => {
@@ -31,7 +35,7 @@ export class GrapeSortsService {
     }
 
     public getById = (id: string) => {
-        return this.httpClient.get<IPhaseDetailResult>(`${this.api}grapeSort/${id}`);
+        return this.httpClient.get<IGrapeSortDetailsResult>(`${this.api}grapeSort/${id}`);
     }
 
     public getPhases = (id: string) => {
@@ -40,5 +44,13 @@ export class GrapeSortsService {
 
     public savePhasesOrder = (request: { grapeSortId: string; phases: { phaseId: string; order: number }[] }) => {
         return this.httpClient.put(`${this.api}grapeSort/${request.grapeSortId}/save_phases_order`, request);
+    }
+
+    public createStandard(requestBody: { grapeSortPhaseId: string; parameterId: string; upperBound: number; lowerBound: number }) {
+        return this.httpClient.post(`${this.api}grapeSort/create_standard`, requestBody)
+    }
+
+    public updateStandards(requestBody: IUpdateGrapeSortProcessPhaseParameterStandardsRequest) {
+        return this.httpClient.put(`${this.api}grapeSort/update_standards`, requestBody);
     }
 }
