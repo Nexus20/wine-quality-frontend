@@ -25,8 +25,8 @@ export class WineMaterialBatchesService {
         return this.httpClient.post<IWineMaterialBatchResult>(`${this.api}wineMaterialBatch`, wineMaterialBatch);
     }
 
-    public update = (wineMaterialBatch: { Id: string; Name: string }) => {
-        return this.httpClient.put(`${this.api}wineMaterialBatch/${wineMaterialBatch.Id}`, wineMaterialBatch);
+    public update = (wineMaterialBatch: { id: string; name: string, harvestLocation: string, harvestDate: Date }) => {
+        return this.httpClient.put(`${this.api}wineMaterialBatch/${wineMaterialBatch.id}`, wineMaterialBatch);
     }
 
     // public getById = (id: string) => {

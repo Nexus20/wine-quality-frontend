@@ -24,6 +24,8 @@ import { GrapeSortPhaseStandardsSettingsComponent } from './grape-sort-phase-sta
 import {MatSelectModule} from "@angular/material/select";
 import { WineMaterialBatchCreateModalComponent } from './wine-material-batch-create-modal/wine-material-batch-create-modal.component';
 import {MatDatepickerModule} from "@angular/material/datepicker";
+import { WineMaterialBatchEditModalComponent } from './wine-material-batch-edit-modal/wine-material-batch-edit-modal.component';
+import { WineMaterialBatchDeleteModalComponent } from './wine-material-batch-delete-modal/wine-material-batch-delete-modal.component';
 
 
 @NgModule({
@@ -35,7 +37,9 @@ import {MatDatepickerModule} from "@angular/material/datepicker";
         GrapeSortDetailsComponent,
         GrapeSortPhasesComponent,
         GrapeSortPhaseStandardsSettingsComponent,
-        WineMaterialBatchCreateModalComponent
+        WineMaterialBatchCreateModalComponent,
+        WineMaterialBatchEditModalComponent,
+        WineMaterialBatchDeleteModalComponent
     ],
     imports: [
         CommonModule,

@@ -1,14 +1,19 @@
 import {Component, OnInit} from '@angular/core';
-import {IGrapeSortDetailsResult, IGrapeSortPhaseResult} from "../models/grape-sort-result";
+import {IGrapeSortDetailsResult, IGrapeSortPhaseResult, IWineMaterialBatchResult} from "../models/grape-sort-result";
 import {MatDialog} from "@angular/material/dialog";
 import {ActivatedRoute} from "@angular/router";
-import {GrapeSortsService} from "../services/grape-sorts.service";
 import {
     GrapeSortPhaseStandardsSettingsComponent
 } from "../grape-sort-phase-standards-settings/grape-sort-phase-standards-settings.component";
 import {
     WineMaterialBatchCreateModalComponent
 } from "../wine-material-batch-create-modal/wine-material-batch-create-modal.component";
+import {
+    WineMaterialBatchDeleteModalComponent
+} from "../wine-material-batch-delete-modal/wine-material-batch-delete-modal.component";
+import {
+    WineMaterialBatchEditModalComponent
+} from "../wine-material-batch-edit-modal/wine-material-batch-edit-modal.component";
 
 @Component({
     selector: 'app-grape-sort-details',
@@ -20,8 +25,7 @@ export class GrapeSortDetailsComponent implements OnInit {
     grapeSortDetails!: IGrapeSortDetailsResult;
 
     constructor(private dialog: MatDialog,
-                private activatedRoute: ActivatedRoute,
-                private grapeSortsService: GrapeSortsService) {
+                private activatedRoute: ActivatedRoute) {
     }
 
     ngOnInit(): void {
@@ -61,6 +65,37 @@ export class GrapeSortDetailsComponent implements OnInit {
 
             if (newWineMaterialBatch)
                 this.grapeSortDetails.wineMaterialBatches = [...this.grapeSortDetails.wineMaterialBatches, newWineMaterialBatch];
+        });
+    }
+
+    openWineMaterialBatchEditDialog(wineMaterialBatch: IWineMaterialBatchResult) {
+        const dialogRef = this.dialog.open(WineMaterialBatchEditModalComponent, {
+            data: wineMaterialBatch
+        });
+
+        dialogRef.afterClosed().subscribe(updatedWineMaterialBatch => {
+
+            if (updatedWineMaterialBatch) {
+                const index = this.grapeSortDetails.wineMaterialBatches.findIndex(x => x.id == updatedWineMaterialBatch.id);
+
+                if(index > -1) {
+                    this.grapeSortDetails.wineMaterialBatches[index].harvestLocation = updatedWineMaterialBatch.harvestLocation;
+                    this.grapeSortDetails.wineMaterialBatches[index].harvestDate = updatedWineMaterialBatch.harvestDate;
+                    this.grapeSortDetails.wineMaterialBatches[index].name = updatedWineMaterialBatch.name;
+                }
+            }
+        });
+    }
+
+    openWineMaterialBatchDeleteDialog(wineMaterialBatch: IWineMaterialBatchResult) {
+        const dialogRef = this.dialog.open(WineMaterialBatchDeleteModalComponent, {
+            data: wineMaterialBatch
+        });
+
+        dialogRef.afterClosed().subscribe(deletedWineMaterialBatchId => {
+            if (deletedWineMaterialBatchId) {
+                this.grapeSortDetails.wineMaterialBatches = this.grapeSortDetails.wineMaterialBatches.filter(x => x.id != deletedWineMaterialBatchId);
+            }
         });
     }
 }
