@@ -30,6 +30,10 @@ const routes: Routes = [
     {
         path: 'wine-material-batches',
         loadChildren: () => import('./wine-material-batches/wine-material-batches.module').then(m => m.WineMaterialBatchesModule)
+    },
+    {
+        path: 'sensors',
+        loadChildren: () => import('./sensors/sensors.module').then(m => m.SensorsModule)
     }
 ];
 

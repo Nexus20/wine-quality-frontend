@@ -1,1 +1,58 @@
-<p>wine-material-batch-details works!</p>
+<app-header></app-header>
+<main>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="wine-material-batch-details">
+                    <h2>{{ wineMaterialBatchDetails.name }}</h2>
+                    <p>Harvest Date: {{ wineMaterialBatchDetails.harvestDate | date }}</p>
+                    <p>Harvest Location: {{ wineMaterialBatchDetails.harvestLocation }}</p>
+                    <p>Grape Sort: {{ wineMaterialBatchDetails.grapeSort.name }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-8">
+                <section class="phases-section">
+                    <h3>Phases</h3>
+                    <div>
+                        <button mat-raised-button color="primary" (click)="openPhasesEditDialog(wineMaterialBatchDetails.phases)">Edit</button>
+                    </div>
+                    <mat-list>
+                        <mat-list-item *ngFor="let phase of wineMaterialBatchDetails.phases">
+                            <div class="phase-card">
+                                <h3 matListItemTitle>{{ phase.phase.phaseName }}</h3>
+                                <p matListItemLine>Start Date: {{ phase.startDate | date }}</p>
+                                <p matListItemLine>End Date: {{ phase.endDate | date }}</p>
+                            </div>
+                        </mat-list-item>
+                    </mat-list>
+                </section>
+            </div>
+            <div class="col-4 active-phase-section">
+                <h3>Active Phase</h3>
+                <ng-container *ngIf="wineMaterialBatchDetails.activePhase; else noActivePhase">
+                    <p>Phase: {{ wineMaterialBatchDetails.activePhase.phase.phaseName }}</p>
+                    <p>Start Date: {{ wineMaterialBatchDetails.activePhase.startDate | date }}</p>
+                    <p>End Date: {{ wineMaterialBatchDetails.activePhase.endDate | date }}</p>
+                    <h4>Readings</h4>
+                    <div *ngFor="let reading of wineMaterialBatchDetails.activePhase.readings">
+                        <p>{{ reading.parameterName }}: {{ reading.value }}</p>
+                    </div>
+                </ng-container>
+                <ng-template #noActivePhase>
+                    <p>The process has not been started yet.</p>
+                    <div *ngIf="!startProcessAllowed">
+                        <p>Process start is not allowed due to the following reasons:</p>
+                        <ul>
+                            <li *ngFor="let reason of startProcessNotAllowedReasons">{{ reason }}</li>
+                        </ul>
+                    </div>
+                    <div *ngIf="startProcessAllowed">
+                        <p>Process start is allowed.</p>
+                    </div>
+                </ng-template>
+            </div>
+        </div>
+    </div>
+</main>

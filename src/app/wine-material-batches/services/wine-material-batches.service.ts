@@ -2,7 +2,10 @@ import {Injectable} from '@angular/core';
 import {environment} from "../../../environments/environment";
 import {HttpClient} from "@angular/common/http";
 import {IWineMaterialBatchResult} from "../../grape-sorts/models/grape-sort-result";
-import {IWineMaterialBatchDetailsResult} from "../models/wine-material-batch-details-result";
+import {
+    IWineMaterialBatchDetailsResult,
+    IWineMaterialBatchProcessStartAllowedResult
+} from "../models/wine-material-batch-details-result";
 
 @Injectable({
     providedIn: 'root'
@@ -30,8 +33,8 @@ export class WineMaterialBatchesService {
         return this.httpClient.put(`${this.api}wineMaterialBatch/${wineMaterialBatch.id}`, wineMaterialBatch);
     }
 
-    public getById = (id: string) => {
-        return this.httpClient.get<IWineMaterialBatchDetailsResult>(`${this.api}wineMaterialBatch/${id}`);
+    public getDetailsById = (id: string) => {
+        return this.httpClient.get<IWineMaterialBatchDetailsResult>(`${this.api}wineMaterialBatch/${id}/details`);
     }
     //
     // public getPhases = (id: string) => {
@@ -49,4 +52,11 @@ export class WineMaterialBatchesService {
     // public updateStandards(requestBody: IUpdateWineMaterialBatchProcessPhaseParameterStandardsRequest) {
     //     return this.httpClient.put(`${this.api}wineMaterialBatch/update_standards`, requestBody);
     // }
+    public updatePhasesTerms(requestBody: { terms: { endDate: Date; id: string; startDate: Date }[] }) {
+        return this.httpClient.put(`${this.api}wineMaterialBatch/update_terms`, requestBody);
+    }
+
+    public checkIfProcessStartAllowed(id: string) {
+        return this.httpClient.get<IWineMaterialBatchProcessStartAllowedResult>(`${this.api}wineMaterialBatch/${id}/start_allowed`)
+    }
 }

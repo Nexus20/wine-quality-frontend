@@ -1,3 +1,18 @@
+.wine-material-batch-details {
+  padding: 16px;
+}
+.wine-material-batch-details .active-phase-section .readings {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
 
+.phases-section .phase-card {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  border: 1px solid #696969;
+  border-radius: 8px;
+}
 
 /*# sourceMappingURL=wine-material-batch-details.component.css.map */

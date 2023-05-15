@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {WineMaterialBatchDetailsComponent} from './wine-material-batch-details/wine-material-batch-details.component';
+import {SensorsComponent} from './sensors/sensors.component';
 import {MatTableModule} from "@angular/material/table";
 import {SharedModule} from "../shared/shared.module";
 import {RouterModule} from "@angular/router";
@@ -14,16 +14,19 @@ import {MatListModule} from "@angular/material/list";
 import {MatTabsModule} from "@angular/material/tabs";
 import {MatSelectModule} from "@angular/material/select";
 import {MatDatepickerModule} from "@angular/material/datepicker";
-import {wineMaterialBatchResolver} from "./resolvers/wine-material-batches.resolvers";
 import {MatSnackBar} from "@angular/material/snack-bar";
-import { WineMaterialBatchPhasesEditModalComponent } from './wine-material-batch-phases-edit-modal/wine-material-batch-phases-edit-modal.component';
-import {MatLineModule} from "@angular/material/core";
+import {SensorDetailsComponent} from './sensor-details/sensor-details.component';
+import {sensorResolver, sensorsResolver} from "./resolvers/sensors.resolvers";
+import { SensorCreateModalComponent } from './sensor-create-modal/sensor-create-modal.component';
+import { SensorDeleteModalComponent } from './sensor-delete-modal/sensor-delete-modal.component';
 
 
 @NgModule({
     declarations: [
-        WineMaterialBatchDetailsComponent,
-        WineMaterialBatchPhasesEditModalComponent
+        SensorsComponent,
+        SensorDetailsComponent,
+        SensorCreateModalComponent,
+        SensorDeleteModalComponent
     ],
     imports: [
         CommonModule,
@@ -31,10 +34,17 @@ import {MatLineModule} from "@angular/material/core";
         SharedModule,
         RouterModule.forChild([
             {
-                path: ':id',
-                component: WineMaterialBatchDetailsComponent,
+                path: '',
+                component: SensorsComponent,
                 resolve: {
-                    wineMaterialBatch: wineMaterialBatchResolver
+                    sensors: sensorsResolver
+                },
+            },
+            {
+                path: ':id',
+                component: SensorDetailsComponent,
+                resolve: {
+                    sensor: sensorResolver
                 }
             }
         ]),
@@ -50,9 +60,8 @@ import {MatLineModule} from "@angular/material/core";
         MatSelectModule,
         FormsModule,
         MatDatepickerModule,
-        MatLineModule,
     ],
     providers: [MatSnackBar]
 })
-export class WineMaterialBatchesModule {
+export class SensorsModule {
 }

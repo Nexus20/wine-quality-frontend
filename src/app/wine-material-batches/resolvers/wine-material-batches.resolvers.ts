@@ -4,5 +4,5 @@ import {WineMaterialBatchesService} from "../services/wine-material-batches.serv
 import {IWineMaterialBatchDetailsResult} from "../models/wine-material-batch-details-result";
 
 export const wineMaterialBatchResolver: ResolveFn<IWineMaterialBatchDetailsResult> = (route: ActivatedRouteSnapshot) => {
-    return inject(WineMaterialBatchesService).getById(route.paramMap.get('id')!);
+    return inject(WineMaterialBatchesService).getDetailsById(route.paramMap.get('id')!);
 }

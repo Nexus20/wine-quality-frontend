@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":[],"names":[],"mappings":"","file":"wine-material-batch-details.component.css"}
+{"version":3,"sourceRoot":"","sources":["wine-material-batch-details.component.scss"],"names":[],"mappings":"AAAA;EACI;;AAGI;EACI;EACA;EACA;;;AAMR;EACI;EACA;EACA;EACA;EACA","file":"wine-material-batch-details.component.css"}
