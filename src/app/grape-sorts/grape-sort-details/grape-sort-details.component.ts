@@ -98,4 +98,8 @@ export class GrapeSortDetailsComponent implements OnInit {
             }
         });
     }
+
+    openQualityPredictionSettings(phase: IGrapeSortPhaseResult) {
+
+    }
 }

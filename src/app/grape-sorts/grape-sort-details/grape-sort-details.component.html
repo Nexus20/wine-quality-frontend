@@ -24,6 +24,7 @@
                                     <button mat-raised-button (click)="openStandardSettingsDialog(phase)">Standard
                                         settings
                                     </button>
+                                    <a mat-raised-button [routerLink]="['phases/' + phase.id + '/quality-prediction-settings']">Quality prediction settings</a>
                                 </div>
                             </div>
                         </mat-tab>

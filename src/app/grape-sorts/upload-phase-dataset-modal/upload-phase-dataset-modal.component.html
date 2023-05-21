@@ -1,0 +1,10 @@
+<h2 mat-dialog-title>Upload new dataset</h2>
+<div mat-dialog-content>
+    <form [formGroup]="uploadForm">
+        <input type="file" formControlName="files" required multiple accept=".csv" (change)="onFileChange($event)" />
+    </form>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="cancel()">Cancel</button>
+    <button mat-raised-button color="primary" (click)="uploadDatasets()" [disabled]="uploadForm.invalid">Upload</button>
+</div>

@@ -4,7 +4,13 @@ import {MatTableModule} from "@angular/material/table";
 import {SharedModule} from "../shared/shared.module";
 import {RouterModule} from "@angular/router";
 import {GrapeSortsComponent} from './grape-sorts/grape-sorts.component';
-import {grapeSortPhasesResolver, grapeSortResolver, grapeSortsResolver} from "./resolvers/grape-sorts.resolver";
+import {
+    datasetsResolver, forecastModelsResolver,
+    grapeSortPhaseResolver,
+    grapeSortPhasesResolver,
+    grapeSortResolver,
+    grapeSortsResolver
+} from "./resolvers/grape-sorts.resolver";
 import {MatButtonModule} from "@angular/material/button";
 import { GrapeSortCreateComponent } from './grape-sort-create/grape-sort-create.component';
 import { GrapeSortDeleteComponent } from './grape-sort-delete/grape-sort-delete.component';
@@ -26,6 +32,13 @@ import { WineMaterialBatchCreateModalComponent } from './wine-material-batch-cre
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import { WineMaterialBatchEditModalComponent } from './wine-material-batch-edit-modal/wine-material-batch-edit-modal.component';
 import { WineMaterialBatchDeleteModalComponent } from './wine-material-batch-delete-modal/wine-material-batch-delete-modal.component';
+import { GrapeSortPhaseQualityPredictionSettingsComponent } from './grape-sort-phase-quality-prediction-settings/grape-sort-phase-quality-prediction-settings.component';
+import {MatLineModule} from "@angular/material/core";
+import { TrainPhaseModelModalComponent } from './train-phase-model-modal/train-phase-model-modal.component';
+import { DeletePhaseDatasetModalComponent } from './delete-phase-dataset-modal/delete-phase-dataset-modal.component';
+import { DeletePhaseModelModalComponent } from './delete-phase-model-modal/delete-phase-model-modal.component';
+import {NgxMatFileInputModule} from "@angular-material-components/file-input";
+import { UploadPhaseDatasetModalComponent } from './upload-phase-dataset-modal/upload-phase-dataset-modal.component';
 
 
 @NgModule({
@@ -39,7 +52,12 @@ import { WineMaterialBatchDeleteModalComponent } from './wine-material-batch-del
         GrapeSortPhaseStandardsSettingsComponent,
         WineMaterialBatchCreateModalComponent,
         WineMaterialBatchEditModalComponent,
-        WineMaterialBatchDeleteModalComponent
+        WineMaterialBatchDeleteModalComponent,
+        GrapeSortPhaseQualityPredictionSettingsComponent,
+        TrainPhaseModelModalComponent,
+        DeletePhaseDatasetModalComponent,
+        DeletePhaseModelModalComponent,
+        UploadPhaseDatasetModalComponent
     ],
     imports: [
         CommonModule,
@@ -68,6 +86,16 @@ import { WineMaterialBatchDeleteModalComponent } from './wine-material-batch-del
                     phases: phasesResolver
                 },
             },
+            {
+                path: ':id/phases/:phaseId/quality-prediction-settings',
+                component: GrapeSortPhaseQualityPredictionSettingsComponent,
+                resolve: {
+                    grapeSort: grapeSortResolver,
+                    grapeSortPhase: grapeSortPhaseResolver,
+                    datasets: datasetsResolver,
+                    forecastModels: forecastModelsResolver
+                }
+            }
         ]),
         MatButtonModule,
         MatIconModule,
@@ -81,6 +109,8 @@ import { WineMaterialBatchDeleteModalComponent } from './wine-material-batch-del
         MatSelectModule,
         FormsModule,
         MatDatepickerModule,
+        MatLineModule,
+        NgxMatFileInputModule,
     ],
     providers: [MatSnackBar]
 })

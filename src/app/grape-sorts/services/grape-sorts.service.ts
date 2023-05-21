@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {environment} from "../../../environments/environment";
 import {HttpClient} from "@angular/common/http";
 import {
-    IGrapeSortDetailsResult,
+    IGrapeSortDetailsResult, IGrapeSortPhaseDatasetResult, IGrapeSortPhaseForecastModelResult,
     IGrapeSortPhaseResult,
     IGrapeSortResult,
     IUpdateGrapeSortProcessPhaseParameterStandardsRequest
@@ -52,5 +52,33 @@ export class GrapeSortsService {
 
     public updateStandards(requestBody: IUpdateGrapeSortProcessPhaseParameterStandardsRequest) {
         return this.httpClient.put(`${this.api}grapeSort/update_standards`, requestBody);
+    }
+
+    public getPhaseById(phaseId: string) {
+        return this.httpClient.get<IGrapeSortPhaseResult>(`${this.api}grapeSort/phases/${phaseId}`);
+    }
+
+    public getPhaseDatasets(phaseId: string) {
+        return this.httpClient.get<IGrapeSortPhaseDatasetResult[]>(`${this.api}datasets/${phaseId}`);
+    }
+
+    public getPhaseModels(phaseId: string) {
+        return this.httpClient.get<IGrapeSortPhaseForecastModelResult[]>(`${this.api}qualityPrediction/${phaseId}/models`);
+    }
+
+    public uploadDataset(formData: FormData) {
+        return this.httpClient.post<IGrapeSortPhaseDatasetResult[]>(`${this.api}datasets`, formData);
+    }
+
+    public deletePhaseDataset(id: string) {
+        return this.httpClient.delete(`${this.api}datasets/${id}`);
+    }
+
+    public deletePhaseModel(id: string) {
+        return this.httpClient.delete(`${this.api}qualityPrediction/${id}`);
+    }
+
+    public trainModel(requestBody: {datasetId: string}) {
+        return this.httpClient.post<IGrapeSortPhaseForecastModelResult>(`${this.api}qualityPrediction/train_phase_model`, requestBody);
     }
 }

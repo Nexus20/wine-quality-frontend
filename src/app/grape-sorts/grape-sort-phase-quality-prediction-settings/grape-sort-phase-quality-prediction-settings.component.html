@@ -1,0 +1,34 @@
+<app-header></app-header>
+<main>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <mat-tab-group>
+                    <mat-tab label="Datasets">
+                        <h2>Datasets</h2>
+                        <button mat-raised-button (click)="openUploadDatasetDialog()">Upload new</button>
+                        <div *ngFor="let dataset of datasets">
+                            <h3> {{ dataset.datasetInfo.name }} </h3>
+                            <div>
+                                <a href="{{ dataset.datasetInfo.url }}">Download</a>
+                            </div>
+                            <button mat-icon-button color="warn" (click)="openDeleteDatasetDialog(dataset)"><mat-icon>delete</mat-icon></button>
+                        </div>
+                    </mat-tab>
+                    <mat-tab label="Machine Learning Models">
+                        <h2>Forecast models</h2>
+                        <button mat-raised-button (click)="openTrainModelDialog()">Train new</button>
+                        <div *ngFor="let model of forecastModels">
+                            <h3> {{ model.accuracy }} </h3>
+                            <div>
+                                <a href="{{ model.modelUri }}">Download</a>
+                            </div>
+                            <div>Dataset: <a href="{{model.datasetInfo.datasetInfo.url}}">{{model.datasetInfo.datasetInfo.name}}</a></div>
+                            <button mat-icon-button color="warn" (click)="openDeleteModelDialog(model)"><mat-icon>delete</mat-icon></button>
+                        </div>
+                    </mat-tab>
+                </mat-tab-group>
+            </div>
+        </div>
+    </div>
+</main>

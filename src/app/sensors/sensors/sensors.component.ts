@@ -7,6 +7,8 @@ import {Clipboard} from "@angular/cdk/clipboard";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {SensorCreateModalComponent} from "../sensor-create-modal/sensor-create-modal.component";
 import {SensorDeleteModalComponent} from "../sensor-delete-modal/sensor-delete-modal.component";
+import {SignalrService} from "../../core/services/signalr.service";
+import {SensorStatusUpdatedMessage} from "../../core/models/IBaseResult";
 
 @Component({
     selector: 'app-sensors',
@@ -20,6 +22,7 @@ export class SensorsComponent implements OnInit {
     constructor(private dialog: MatDialog,
                 private activatedRoute: ActivatedRoute,
                 private sensorsService: SensorsService,
+                private signalrService: SignalrService,
                 private clipboard: Clipboard,
                 private snackBar: MatSnackBar) {
     }
@@ -28,6 +31,15 @@ export class SensorsComponent implements OnInit {
         this.activatedRoute.data.subscribe(({sensors}) => {
             this.sensors = sensors;
             console.log(sensors);
+
+            this.signalrService.startConnection();
+            this.signalrService.hubConnection.on(SensorStatusUpdatedMessage, (data) => {
+                console.log(data);
+                const sensor = this.sensors.find(x => x.id == data.deviceId);
+                if (sensor) {
+                    sensor.status = data.newStatus;
+                }
+            });
         })
     }
 

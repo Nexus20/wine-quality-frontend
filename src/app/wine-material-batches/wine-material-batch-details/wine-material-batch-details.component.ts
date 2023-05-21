@@ -9,6 +9,9 @@ import {
     WineMaterialBatchPhasesEditModalComponent
 } from "../wine-material-batch-phases-edit-modal/wine-material-batch-phases-edit-modal.component";
 import {WineMaterialBatchesService} from "../services/wine-material-batches.service";
+import {
+    WineMaterialBatchPhaseSensorsModalComponent
+} from "../wine-material-batch-phase-sensors-modal/wine-material-batch-phase-sensors-modal.component";
 
 @Component({
   selector: 'app-wine-material-batch-details',
@@ -46,6 +49,19 @@ export class WineMaterialBatchDetailsComponent implements OnInit {
         dialogRef.afterClosed().subscribe(updatedPhases => {
             if (updatedPhases) {
                 this.wineMaterialBatchDetails.phases = updatedPhases;
+            }
+        });
+    }
+
+    openSensorsDialog(phase: IWineMaterialBatchGrapeSortPhaseResult) {
+        const dialogRef = this.dialog.open(WineMaterialBatchPhaseSensorsModalComponent, {
+            data: phase,
+            width: '1000px'
+        });
+
+        dialogRef.afterClosed().subscribe(result => {
+            if (result) {
+
             }
         });
     }

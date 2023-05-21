@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {environment} from "../../../environments/environment";
 import {HttpClient} from "@angular/common/http";
-import {ISensorResult} from "../models/sensor-result";
+import {ISensorResult, ISensorStatusResult} from "../models/sensor-result";
 import {AbstractControl, ValidationErrors} from "@angular/forms";
 
 @Injectable({
@@ -22,7 +22,13 @@ export class SensorsService {
         return this.httpClient.delete(`${this.api}sensor/${id}`);
     }
 
-    public create = (sensor: { parameterId: ({ disabled: boolean; value: string } | ((control: AbstractControl) => (ValidationErrors | null)))[]; phaseId: any }) => {
+    public create = (sensor: {
+        parameterId: ({
+            disabled: boolean;
+            value: string
+        } | ((control: AbstractControl) => (ValidationErrors | null)))[];
+        phaseId: any
+    }) => {
         return this.httpClient.post<ISensorResult>(`${this.api}sensor`, sensor);
     }
 
@@ -32,5 +38,16 @@ export class SensorsService {
 
     public getById = (id: string) => {
         return this.httpClient.get<ISensorResult>(`${this.api}sensor/${id}`);
+    }
+
+    public assignDevicesToWineMaterialBatchPhase(requestBody: {
+        wineMaterialBatchGrapeSortPhaseId: string;
+        sensorsIds: string[]
+    }) {
+        return this.httpClient.post(`${this.api}sensor/assign_devices_to_wine_material_batch`, requestBody);
+    }
+
+    public getStatuses() {
+        return this.httpClient.get<ISensorStatusResult[]>(`${this.api}sensor/statuses`);
     }
 }

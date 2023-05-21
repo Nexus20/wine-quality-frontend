@@ -1,5 +1,8 @@
-import {IBaseResult} from "../../core/models/IBaseResult";
+import {IBaseResult, IStatusResult} from "../../core/models/IBaseResult";
 
+export interface ISensorStatusResult extends IStatusResult<DeviceStatus> {
+
+}
 export interface ISensorResult extends IBaseResult {
     phaseParameterId: string;
     phaseId: string;

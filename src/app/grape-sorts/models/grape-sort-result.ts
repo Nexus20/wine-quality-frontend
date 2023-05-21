@@ -40,3 +40,18 @@ export interface IGrapeSortProcessPhaseParameterStandardResult extends IBaseResu
     lowerBound: number,
     upperBound: number,
 }
+
+export interface IGrapeSortPhaseDatasetResult extends IBaseResult {
+    datasetInfo: IFileNameWithUrlDto;
+}
+
+export interface IFileNameWithUrlDto {
+    name: string;
+    url: string;
+}
+
+export interface IGrapeSortPhaseForecastModelResult extends IBaseResult {
+    accuracy: number;
+    modelUri: string;
+    datasetInfo: IGrapeSortPhaseDatasetResult;
+}

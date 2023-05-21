@@ -18,12 +18,17 @@ import {wineMaterialBatchResolver} from "./resolvers/wine-material-batches.resol
 import {MatSnackBar} from "@angular/material/snack-bar";
 import { WineMaterialBatchPhasesEditModalComponent } from './wine-material-batch-phases-edit-modal/wine-material-batch-phases-edit-modal.component';
 import {MatLineModule} from "@angular/material/core";
+import { WineMaterialBatchPhaseSensorsModalComponent } from './wine-material-batch-phase-sensors-modal/wine-material-batch-phase-sensors-modal.component';
+import {MatExpansionModule} from "@angular/material/expansion";
+import {MatRadioModule} from "@angular/material/radio";
+import {MatCheckboxModule} from "@angular/material/checkbox";
 
 
 @NgModule({
     declarations: [
         WineMaterialBatchDetailsComponent,
-        WineMaterialBatchPhasesEditModalComponent
+        WineMaterialBatchPhasesEditModalComponent,
+        WineMaterialBatchPhaseSensorsModalComponent
     ],
     imports: [
         CommonModule,
@@ -51,6 +56,9 @@ import {MatLineModule} from "@angular/material/core";
         FormsModule,
         MatDatepickerModule,
         MatLineModule,
+        MatExpansionModule,
+        MatRadioModule,
+        MatCheckboxModule,
     ],
     providers: [MatSnackBar]
 })

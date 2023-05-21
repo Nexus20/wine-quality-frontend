@@ -15,7 +15,10 @@ export interface IWineMaterialBatchGrapeSortPhaseResult extends IBaseResult {
     endDate: Date;
     isActive: boolean;
     phase: IGrapeSortPhaseResult;
+    parameters: IWineMaterialBatchGrapeSortPhaseParameterResult[];
 }
+
+export interface IWineMaterialBatchGrapeSortPhaseParameterResult extends IBaseResult {}
 
 export interface IActiveWineMaterialBatchGrapeSortPhaseResult extends IWineMaterialBatchGrapeSortPhaseResult {
     readings: IWineMaterialBatchProcessPhaseReadingsResult[];

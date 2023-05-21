@@ -24,6 +24,7 @@
                                 <h3 matListItemTitle>{{ phase.phase.phaseName }}</h3>
                                 <p matListItemLine>Start Date: {{ phase.startDate | date }}</p>
                                 <p matListItemLine>End Date: {{ phase.endDate | date }}</p>
+                                <button mat-button (click)="openSensorsDialog(phase)">Sensors</button>
                             </div>
                         </mat-list-item>
                     </mat-list>
