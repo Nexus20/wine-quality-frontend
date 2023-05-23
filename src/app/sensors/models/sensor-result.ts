@@ -17,6 +17,8 @@ export interface ISensorResult extends IBaseResult {
     deviceKey: string;
     isActive: boolean;
     status: DeviceStatus;
+
+    lastValue?: number | null;
 }
 
 export enum DeviceStatus {

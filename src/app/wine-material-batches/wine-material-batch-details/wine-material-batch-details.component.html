@@ -25,6 +25,7 @@
                                 <p matListItemLine>Start Date: {{ phase.startDate | date }}</p>
                                 <p matListItemLine>End Date: {{ phase.endDate | date }}</p>
                                 <button mat-button (click)="openSensorsDialog(phase)">Sensors</button>
+                                <a mat-button [routerLink]="['phases/' + phase.id + '/details']">Details</a>
                             </div>
                         </mat-list-item>
                     </mat-list>

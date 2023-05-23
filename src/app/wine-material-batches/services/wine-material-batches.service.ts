@@ -1,9 +1,13 @@
 import {Injectable} from '@angular/core';
 import {environment} from "../../../environments/environment";
 import {HttpClient} from "@angular/common/http";
-import {IWineMaterialBatchResult} from "../../grape-sorts/models/grape-sort-result";
 import {
-    IWineMaterialBatchDetailsResult,
+    IPredictionResult,
+    IWineMaterialBatchPhaseParameterChartDataResult,
+    IWineMaterialBatchResult
+} from "../../grape-sorts/models/grape-sort-result";
+import {
+    IWineMaterialBatchDetailsResult, IWineMaterialBatchGrapeSortPhaseDetailsResult,
     IWineMaterialBatchProcessStartAllowedResult
 } from "../models/wine-material-batch-details-result";
 
@@ -58,5 +62,32 @@ export class WineMaterialBatchesService {
 
     public checkIfProcessStartAllowed(id: string) {
         return this.httpClient.get<IWineMaterialBatchProcessStartAllowedResult>(`${this.api}wineMaterialBatch/${id}/start_allowed`)
+    }
+
+    public checkIfPhaseProcessStartAllowed(phaseId: string) {
+        return this.httpClient.get<IWineMaterialBatchProcessStartAllowedResult>(`${this.api}wineMaterialBatch/phases/${phaseId}/start_allowed`)
+    }
+
+    public getPhaseDetailsById(phaseId: string) {
+        return this.httpClient.get<IWineMaterialBatchGrapeSortPhaseDetailsResult>(`${this.api}wineMaterialBatch/phases/${phaseId}/details`);
+    }
+
+    public runProcessPhase(requestBody: {wineMaterialBatchId: string; wineMaterialBatchGrapeSortPhaseId: string}) {
+        return this.httpClient.post(`${this.api}wineMaterialBatch/run_process_phase`, requestBody);
+    }
+
+    public predictQualityForPhase(requestBody: { forecastModelId: any; wineMaterialBatchGrapeSortPhaseId: string }) {
+        return this.httpClient.post<IPredictionResult>(`${this.api}qualityPrediction/predict`, requestBody);
+    }
+
+    public getPredictionHistory(phaseId: string) {
+        return this.httpClient.get<IPredictionResult[]>(`${this.api}qualityPrediction/${phaseId}/history`);
+    }
+
+    public getChartDataForPhaseParameter(requestBody: {
+        ChartType: number;
+        WineMaterialBatchGrapeSortPhaseParameterId: string
+    }) {
+        return this.httpClient.get<IWineMaterialBatchPhaseParameterChartDataResult>(`${this.api}wineMaterialBatch/phases/parameters/get_chart_data`, {params: requestBody});
     }
 }

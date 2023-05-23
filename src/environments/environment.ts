@@ -5,8 +5,8 @@
 export const environment = {
   production: false,
   api: 'https://192.168.0.111:7110/api/',
-  locales: ['en', 'ua'],
-  defaultLocale: 'en'
+  locales: ['en-US', 'uk-UA'],
+  defaultLocale: 'en-US'
 };
 
 /*

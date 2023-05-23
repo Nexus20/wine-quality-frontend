@@ -3,6 +3,7 @@ import {Store} from "@ngxs/store";
 import {Router} from "@angular/router";
 import {AuthState} from "../../users/states/auth.state";
 import {Logout} from "../../users/states/auth.action";
+import {ClearProfile} from "../../profile/state/profile.actions";
 
 @Component({
     selector: 'app-header',
@@ -32,7 +33,7 @@ export class HeaderComponent implements OnInit {
     }
 
     logout() {
-        this.store.dispatch([new Logout()]).subscribe(() => {
+        this.store.dispatch([new Logout(), new ClearProfile()]).subscribe(() => {
             this.isUserAdmin = false;
             this.router.navigate(['/']);
             location.reload();

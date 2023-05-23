@@ -3,6 +3,7 @@ import {TranslateService} from "@ngx-translate/core";
 import {environment} from "../environments/environment";
 import {Store} from "@ngxs/store";
 import {AuthState} from "./users/states/auth.state";
+import {ProfileState} from "./profile/state/profile.state";
 
 @Component({
   selector: 'app-root',
@@ -17,8 +18,8 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.translateService.setDefaultLang(environment.defaultLocale)
-    this.translateService.addLangs(['en', 'ua']);
-    const language = this.store.selectSnapshot(AuthState.selectLanguage);
+    this.translateService.addLangs(['en-US', 'uk-UA']);
+    const language = this.store.selectSnapshot(ProfileState.selectLanguage);
     this.translateService.use(language);
   }
 }

@@ -1,0 +1,68 @@
+<app-header></app-header>
+<main>
+    <div class="container">
+        <div class="row mb-3">
+            <div class="col-12">
+                <h1>{{ wineMaterialBatchDetails.name }}</h1>
+                <p>Grape Sort: {{ wineMaterialBatchDetails.grapeSort.name }}</p>
+                <p>Phase: {{ wineMaterialBatchGrapeSortPhaseDetails.phase.phaseName }}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-8">
+                <mat-accordion multi>
+                    <mat-expansion-panel *ngFor="let parameterDetail of wineMaterialBatchGrapeSortPhaseDetails.parametersDetails" [expanded]="true">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                {{ parameterDetail.parameter.name }}
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+
+<!--                        <p>Standard: {{ parameterDetail.parameter. }}</p>-->
+                        <button mat-button (click)="openChartDialog(parameterDetail)">Show Chart</button>
+                        <mat-list>
+                            <mat-list-item *ngFor="let sensor of parameterDetail.sensors">
+                                {{ sensor.id }} ({{statuses[sensor.status]}}): {{ sensor.lastValue | number:'1.0-5' }}
+                            </mat-list-item>
+                        </mat-list>
+                    </mat-expansion-panel>
+                </mat-accordion>
+            </div>
+            <div class="col-4">
+                <mat-card class="example-card">
+                    <mat-card-header>
+                        <mat-card-title>Phase status</mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content>
+
+                        <ng-container *ngIf="wineMaterialBatchGrapeSortPhaseDetails.isActive; else phaseIsNotActive">
+                            <p>Process is running</p>
+                            <button mat-raised-button color="primary" (click)="openPredictQualityModal()">Predict quality</button>
+                            <ng-container *ngIf="predictionResult">
+                                <button mat-raised-button color="primary" (click)="openShowPredictionDetailsModal()">Prediction details</button>
+                            </ng-container>
+                        </ng-container>
+                        <ng-template #phaseIsNotActive>
+                            <div *ngIf="!startProcessAllowed">
+                                <p>Process start is not allowed due to the following reasons:</p>
+                                <ul>
+                                    <li *ngFor="let reason of startProcessNotAllowedReasons">{{ reason }}</li>
+                                </ul>
+                            </div>
+                            <div *ngIf="startProcessAllowed">
+                                <p>Process start is allowed.</p>
+                                <button mat-raised-button color="primary" (click)="openStartPhaseProcessModal()">Start process</button>
+                            </div>
+                        </ng-template>
+                        <div>
+                            <a mat-raised-button [routerLink]="['/wine-material-batches/'+this.wineMaterialBatchDetails.id + '/phases/' + this.wineMaterialBatchGrapeSortPhaseDetails.id + '/predictions-history']">Predictions history</a>
+                        </div>
+                    </mat-card-content>
+                    <mat-card-actions>
+
+                    </mat-card-actions>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</main>

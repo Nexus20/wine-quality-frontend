@@ -11,3 +11,10 @@ export class ClearProfile {
     constructor() {
     }
 }
+
+export class SetLanguage {
+    static readonly type = '[Profile] Set language';
+
+    constructor(public newLanguage: string) {
+    }
+}

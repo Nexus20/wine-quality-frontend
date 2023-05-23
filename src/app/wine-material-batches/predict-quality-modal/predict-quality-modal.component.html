@@ -1,0 +1,16 @@
+<h1 mat-dialog-title>Select machine learning model</h1>
+<div mat-dialog-content>
+    <form [formGroup]="predictionForm" (ngSubmit)="predictQuality()">
+        <mat-form-field>
+            <mat-select placeholder="Select Model" formControlName="selectedModel">
+                <mat-option *ngFor="let model of models" [value]="model.id">
+                    {{model.modelName}} Accuracy: {{model.accuracy}} Trained at {{model.createdAt}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </form>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="cancel()">Cancel</button>
+    <button mat-raised-button color="primary" (click)="predictQuality()">Predict</button>
+</div>

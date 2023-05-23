@@ -34,10 +34,12 @@ export class WineMaterialBatchDetailsComponent implements OnInit {
         this.activatedRoute.data.subscribe(({wineMaterialBatch}) => {
             this.wineMaterialBatchDetails = wineMaterialBatch;
 
-            this.wineMaterialBatchesService.checkIfProcessStartAllowed(this.wineMaterialBatchDetails.id).subscribe((result: IWineMaterialBatchProcessStartAllowedResult) => {
-                this.startProcessAllowed = result.startAllowed;
-                this.startProcessNotAllowedReasons = result.startNotAllowedReasons;
-            });
+            if(!this.wineMaterialBatchDetails.phases.some(x => x.isActive)) {
+                this.wineMaterialBatchesService.checkIfProcessStartAllowed(this.wineMaterialBatchDetails.id).subscribe((result: IWineMaterialBatchProcessStartAllowedResult) => {
+                    this.startProcessAllowed = result.startAllowed;
+                    this.startProcessNotAllowedReasons = result.startNotAllowedReasons;
+                });
+            }
         })
     }
 

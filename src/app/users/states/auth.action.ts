@@ -8,10 +8,3 @@ export class Login {
 export class Logout {
     static readonly type = '[Authentication] Logout';
 }
-
-export class SetLanguage {
-    static readonly type = '[Authentication] Set language';
-
-    constructor(public newLanguage: string) {
-    }
-}

@@ -1,4 +1,7 @@
 import {DeviceStatus} from "../../sensors/models/sensor-result";
+import {
+    IWineMaterialBatchGrapeSortPhaseParameterValueResult
+} from "../../wine-material-batches/models/wine-material-batch-details-result";
 
 export interface IStatusResult<TStatus> {
     status: TStatus;
@@ -16,4 +19,10 @@ export interface ISensorStatusUpdatedMessage {
     newStatus: DeviceStatus;
 }
 
+export interface IReadingsMessage {
+    deviceId: string;
+    value: IWineMaterialBatchGrapeSortPhaseParameterValueResult;
+}
+
 export const SensorStatusUpdatedMessage = 'SensorStatusUpdated';
+export const ReadingsMessage = 'Readings';

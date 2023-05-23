@@ -5,4 +5,5 @@ export interface IUserResult extends IBaseResult {
     lastName: string;
     phone: string;
     email: string;
+    selectedCulture: string;
 }

@@ -14,7 +14,11 @@ import {MatListModule} from "@angular/material/list";
 import {MatTabsModule} from "@angular/material/tabs";
 import {MatSelectModule} from "@angular/material/select";
 import {MatDatepickerModule} from "@angular/material/datepicker";
-import {wineMaterialBatchResolver} from "./resolvers/wine-material-batches.resolvers";
+import {
+    wineMaterialBatchGrapeSortPhasePredictionHistoryResolver,
+    wineMaterialBatchGrapeSortPhaseResolver,
+    wineMaterialBatchResolver
+} from "./resolvers/wine-material-batches.resolvers";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import { WineMaterialBatchPhasesEditModalComponent } from './wine-material-batch-phases-edit-modal/wine-material-batch-phases-edit-modal.component';
 import {MatLineModule} from "@angular/material/core";
@@ -22,13 +26,27 @@ import { WineMaterialBatchPhaseSensorsModalComponent } from './wine-material-bat
 import {MatExpansionModule} from "@angular/material/expansion";
 import {MatRadioModule} from "@angular/material/radio";
 import {MatCheckboxModule} from "@angular/material/checkbox";
+import { WineMaterialBatchPhaseDetailsComponent } from './wine-material-batch-phase-details/wine-material-batch-phase-details.component';
+import {MatCardModule} from "@angular/material/card";
+import { StartPhaseProcessModalComponent } from './start-phase-process-modal/start-phase-process-modal.component';
+import { PredictQualityModalComponent } from './predict-quality-modal/predict-quality-modal.component';
+import { QualityPredictionDetailsModalComponent } from './quality-prediction-details-modal/quality-prediction-details-modal.component';
+import { WineMaterialBatchPhasePredictionHistoryComponent } from './wine-material-batch-phase-prediction-history/wine-material-batch-phase-prediction-history.component';
+import { WineMaterialBatchPhaseParameterChartModalComponent } from './wine-material-batch-phase-parameter-chart-modal/wine-material-batch-phase-parameter-chart-modal.component';
+import {NgChartsModule} from "ng2-charts";
 
 
 @NgModule({
     declarations: [
         WineMaterialBatchDetailsComponent,
         WineMaterialBatchPhasesEditModalComponent,
-        WineMaterialBatchPhaseSensorsModalComponent
+        WineMaterialBatchPhaseSensorsModalComponent,
+        WineMaterialBatchPhaseDetailsComponent,
+        StartPhaseProcessModalComponent,
+        PredictQualityModalComponent,
+        QualityPredictionDetailsModalComponent,
+        WineMaterialBatchPhasePredictionHistoryComponent,
+        WineMaterialBatchPhaseParameterChartModalComponent
     ],
     imports: [
         CommonModule,
@@ -40,6 +58,23 @@ import {MatCheckboxModule} from "@angular/material/checkbox";
                 component: WineMaterialBatchDetailsComponent,
                 resolve: {
                     wineMaterialBatch: wineMaterialBatchResolver
+                }
+            },
+            {
+                path: ':id/phases/:phaseId/details',
+                component: WineMaterialBatchPhaseDetailsComponent,
+                resolve: {
+                    wineMaterialBatch: wineMaterialBatchResolver,
+                    wineMaterialBatchGrapeSortPhase: wineMaterialBatchGrapeSortPhaseResolver
+                }
+            },
+            {
+                path: ':id/phases/:phaseId/predictions-history',
+                component: WineMaterialBatchPhasePredictionHistoryComponent,
+                resolve: {
+                    wineMaterialBatch: wineMaterialBatchResolver,
+                    wineMaterialBatchGrapeSortPhase: wineMaterialBatchGrapeSortPhaseResolver,
+                    predictionHistory: wineMaterialBatchGrapeSortPhasePredictionHistoryResolver
                 }
             }
         ]),
@@ -59,6 +94,8 @@ import {MatCheckboxModule} from "@angular/material/checkbox";
         MatExpansionModule,
         MatRadioModule,
         MatCheckboxModule,
+        MatCardModule,
+        NgChartsModule,
     ],
     providers: [MatSnackBar]
 })

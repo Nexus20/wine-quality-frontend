@@ -2,10 +2,9 @@ import {Injectable} from "@angular/core";
 import {Action, Selector, State, StateContext} from "@ngxs/store";
 import {tap} from "rxjs";
 import {IAuthState} from "./auth.model";
-import {Login, Logout, SetLanguage} from "./auth.action";
+import {Login, Logout} from "./auth.action";
 import {UserService} from "../user.service";
 import {JwtHelperService} from "@auth0/angular-jwt";
-import {environment} from "../../../environments/environment";
 
 @State<IAuthState>({
     name: 'auth',
@@ -13,14 +12,14 @@ import {environment} from "../../../environments/environment";
         id: '',
         token: '',
         email: '',
-        roles: undefined,
-        language: environment.defaultLocale
+        roles: undefined
     }
 })
 @Injectable()
 export class AuthState {
 
-    constructor(private authService: UserService, private jwtHelper: JwtHelperService) {
+    constructor(private authService: UserService,
+                private jwtHelper: JwtHelperService) {
     }
 
     @Selector()
@@ -42,18 +41,6 @@ export class AuthState {
     static isUserCustomer(state: IAuthState) {
         return state.roles === "Customer";
     }
-
-  @Selector()
-  static selectLanguage(state: IAuthState) {
-    return state.language;
-  }
-
-  @Action(SetLanguage)
-  setLanguage(ctx: StateContext<IAuthState>, {newLanguage}: SetLanguage) {
-    const state = ctx.getState();
-    state.language = newLanguage;
-    ctx.setState(state);
-  }
 
     @Action(Login)
     login({patchState}: StateContext<IAuthState>, {payload}: Login) {

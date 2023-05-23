@@ -1,0 +1,26 @@
+<h1 mat-dialog-title>Prediction details</h1>
+<div mat-dialog-content>
+    <div>
+        <mat-form-field>
+            <mat-label>Chart Type</mat-label>
+            <mat-select [(ngModel)]="selectedChartType" (selectionChange)="onChartTypeChange($event)">
+                <mat-option *ngFor="let chartType of chartTypes" [value]="chartType.value">
+                    {{chartType.viewValue}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div style="display: block;">
+        <canvas baseChart
+                [legend]="chartLegend"
+                [datasets]="chartData"
+                [labels]="chartLabels"
+                [options]="chartOptions"
+                [type]="'line'">
+        </canvas>
+    </div>
+
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="dialogRef.close()">Close</button>
+</div>

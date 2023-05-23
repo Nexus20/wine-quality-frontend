@@ -10,11 +10,14 @@ import {RouterModule} from "@angular/router";
 import {SharedModule} from "../shared/shared.module";
 import {TranslateModule} from "@ngx-translate/core";
 import {MatTableModule} from "@angular/material/table";
+import { SessionExpiredModalComponent } from './session-expired-modal/session-expired-modal.component';
+import {MatDialogModule} from "@angular/material/dialog";
 
 
 @NgModule({
     declarations: [
         LoginComponent,
+        SessionExpiredModalComponent,
     ],
     imports: [
         CommonModule,
@@ -29,6 +32,7 @@ import {MatTableModule} from "@angular/material/table";
         SharedModule,
         TranslateModule,
         MatTableModule,
+        MatDialogModule,
     ]
 })
 export class UsersModule {

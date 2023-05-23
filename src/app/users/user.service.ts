@@ -26,7 +26,7 @@ export class UserService {
     }
 
     public getOwnProfile() {
-        return this.httpClient.get<IUserResult>(`${this.api}user/profile`);
+        return this.httpClient.get<IUserResult>(`${this.api}profile`);
     }
 
     public get = (queryParams?: {}) => {

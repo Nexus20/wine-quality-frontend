@@ -43,7 +43,7 @@ export function tokenGetter() {
                 deps: [HttpClient],
             },
             useDefaultLang: true,
-            defaultLanguage: 'en',
+            defaultLanguage: 'en-US',
             missingTranslationHandler: {provide: MissingTranslationHandler, useClass: MissingTranslationService},
         }),
         NgxsModule.forRoot([AuthState, ProfileState]),

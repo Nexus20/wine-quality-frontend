@@ -35,6 +35,7 @@ export interface IUpdateGrapeSortProcessPhaseParameterStandardsRequestPart {
     lowerBound: number;
     upperBound: number;
 }
+
 export interface IGrapeSortProcessPhaseParameterStandardResult extends IBaseResult {
     parameterName: string;
     lowerBound: number,
@@ -52,6 +53,24 @@ export interface IFileNameWithUrlDto {
 
 export interface IGrapeSortPhaseForecastModelResult extends IBaseResult {
     accuracy: number;
+    modelName: string;
     modelUri: string;
     datasetInfo: IGrapeSortPhaseDatasetResult;
+}
+
+export interface IPredictionResult extends IBaseResult {
+    quality: string;
+    explanationItems?: IQualityExplanationItem[] | null;
+    explanationUri: string;
+}
+
+export interface IQualityExplanationItem {
+    reason: string;
+    value: number;
+    severity: number;
+}
+
+export interface IWineMaterialBatchPhaseParameterChartDataResult {
+    labels: Date[];
+    values: number[];
 }

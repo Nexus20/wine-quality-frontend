@@ -3,5 +3,4 @@ export interface IAuthState {
   token: string,
   email: string,
   roles?: [] | string,
-  language: string
 }

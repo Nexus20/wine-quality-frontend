@@ -1,0 +1,18 @@
+<h1 mat-dialog-title>Prediction details</h1>
+<div mat-dialog-content>
+    <p>Quality: {{ data.quality }}</p>
+
+    <h2>Explanation</h2>
+    <div *ngFor="let item of data.explanationItems">
+        <p>Reason: {{ item.reason }}</p>
+        <p>Value: {{ item.value }}</p>
+        <p>Severity: {{ item.severity }}</p>
+    </div>
+
+    <div>
+        <a mat-raised-button [href]="data.explanationUri">Download report</a>
+    </div>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="dialogRef.close()">Close</button>
+</div>

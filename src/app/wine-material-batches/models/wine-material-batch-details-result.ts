@@ -1,5 +1,12 @@
 import {IBaseResult} from "../../core/models/IBaseResult";
 import {IGrapeSortPhaseResult, IGrapeSortResult} from "../../grape-sorts/models/grape-sort-result";
+import {IParameterResult} from "../../phases/models/phase-result";
+import {ISensorResult} from "../../sensors/models/sensor-result";
+
+export interface IWineMaterialBatchGrapeSortPhaseParameterValueResult extends IBaseResult {
+    value: number;
+    phaseParameter: IWineMaterialBatchGrapeSortPhaseParameterResult;
+}
 
 export interface IWineMaterialBatchDetailsResult extends IBaseResult {
     name: string;
@@ -18,7 +25,17 @@ export interface IWineMaterialBatchGrapeSortPhaseResult extends IBaseResult {
     parameters: IWineMaterialBatchGrapeSortPhaseParameterResult[];
 }
 
-export interface IWineMaterialBatchGrapeSortPhaseParameterResult extends IBaseResult {}
+export interface IWineMaterialBatchGrapeSortPhaseDetailsResult extends IWineMaterialBatchGrapeSortPhaseResult {
+    parametersDetails: IWineMaterialBatchGrapeSortPhaseParameterDetailsResult[];
+}
+
+export interface IWineMaterialBatchGrapeSortPhaseParameterResult extends IBaseResult {
+}
+
+export interface IWineMaterialBatchGrapeSortPhaseParameterDetailsResult extends IBaseResult {
+    parameter: IParameterResult;
+    sensors: ISensorResult[];
+}
 
 export interface IActiveWineMaterialBatchGrapeSortPhaseResult extends IWineMaterialBatchGrapeSortPhaseResult {
     readings: IWineMaterialBatchProcessPhaseReadingsResult[];
