@@ -1,7 +1,7 @@
-<h1 mat-dialog-title>Configure Parameters</h1>
+<h1 mat-dialog-title>{{'phases.configure-parameters-modal.header' | translate}}</h1>
 <div mat-dialog-content>
     <div>
-        <h3>Available Parameters:</h3>
+        <h3>{{'phases.configure-parameters-modal.available-parameters' | translate}}:</h3>
         <mat-selection-list #availableParameters>
             <mat-list-option *ngFor="let parameter of availableParametersList" [value]="parameter">
                 {{ parameter.name }}
@@ -9,7 +9,7 @@
         </mat-selection-list>
     </div>
     <div>
-        <h3>Linked Parameters:</h3>
+        <h3>{{'phases.configure-parameters-modal.linked-parameters' | translate}}:</h3>
         <mat-selection-list #linkedParameters>
             <mat-list-option *ngFor="let parameter of linkedParametersList" [value]="parameter">
                 {{ parameter.name }}
@@ -18,7 +18,7 @@
     </div>
 </div>
 <div mat-dialog-actions>
-    <button mat-button [disabled]="availableParameters.selectedOptions.selected.length === 0" (click)="addParameter(availableParameters.selectedOptions.selected)">Link</button>
-    <button mat-button [disabled]="linkedParameters.selectedOptions.selected.length === 0" (click)="removeParameter(linkedParameters.selectedOptions.selected)">Unlink</button>
-    <button mat-button (click)="close()">Close</button>
+    <button mat-button [disabled]="availableParameters.selectedOptions.selected.length === 0" (click)="addParameter(availableParameters.selectedOptions.selected)">{{'phases.configure-parameters-modal.link' | translate}}</button>
+    <button mat-button [disabled]="linkedParameters.selectedOptions.selected.length === 0" (click)="removeParameter(linkedParameters.selectedOptions.selected)">{{'phases.configure-parameters-modal.unlink' | translate}}</button>
+    <button mat-button (click)="close()">{{'common.close' | translate}}</button>
 </div>

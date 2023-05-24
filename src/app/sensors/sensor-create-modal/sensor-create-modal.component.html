@@ -1,15 +1,15 @@
-<h2 mat-dialog-title>Create New Sensor</h2>
+<h2 mat-dialog-title>{{'sensors.create.header' | translate}}</h2>
 <form [formGroup]="createSensorForm" (ngSubmit)="submitForm()">
     <mat-dialog-content>
         <mat-form-field>
-            <mat-label>Phase</mat-label>
+            <mat-label>{{'sensors.phase' | translate}}</mat-label>
             <mat-select formControlName="phase">
                 <mat-option *ngFor="let phase of phases" [value]="phase.id">{{phase.name}}</mat-option>
             </mat-select>
         </mat-form-field>
 
         <mat-form-field>
-            <mat-label>Parameter</mat-label>
+            <mat-label>{{'sensors.parameter' | translate}}</mat-label>
             <mat-select formControlName="parameter">
                 <mat-option *ngFor="let parameter of parameters" [value]="parameter.id">{{parameter.name}}</mat-option>
             </mat-select>
@@ -17,7 +17,7 @@
     </mat-dialog-content>
 
     <mat-dialog-actions>
-        <button mat-button (click)="close()">Cancel</button>
-        <button mat-button type="submit" [disabled]="createSensorForm.invalid">Create</button>
+        <button mat-button (click)="close()">{{'common.cancel' | translate}}</button>
+        <button mat-button type="submit" [disabled]="createSensorForm.invalid">{{'common.confirm' | translate}}</button>
     </mat-dialog-actions>
 </form>

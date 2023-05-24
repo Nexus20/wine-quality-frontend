@@ -14,6 +14,7 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatDialogModule} from "@angular/material/dialog";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatInputModule} from "@angular/material/input";
+import {TranslateModule} from "@ngx-translate/core";
 
 
 @NgModule({
@@ -42,6 +43,7 @@ import {MatInputModule} from "@angular/material/input";
         MatDialogModule,
         ReactiveFormsModule,
         MatInputModule,
+        TranslateModule,
     ]
 })
 export class ParametersModule {

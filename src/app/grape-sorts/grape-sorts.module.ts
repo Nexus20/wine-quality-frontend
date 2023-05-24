@@ -39,6 +39,7 @@ import { DeletePhaseDatasetModalComponent } from './delete-phase-dataset-modal/d
 import { DeletePhaseModelModalComponent } from './delete-phase-model-modal/delete-phase-model-modal.component';
 import {NgxMatFileInputModule} from "@angular-material-components/file-input";
 import { UploadPhaseDatasetModalComponent } from './upload-phase-dataset-modal/upload-phase-dataset-modal.component';
+import {TranslateModule} from "@ngx-translate/core";
 
 
 @NgModule({
@@ -111,6 +112,7 @@ import { UploadPhaseDatasetModalComponent } from './upload-phase-dataset-modal/u
         MatDatepickerModule,
         MatLineModule,
         NgxMatFileInputModule,
+        TranslateModule,
     ],
     providers: [MatSnackBar]
 })

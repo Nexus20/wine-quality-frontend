@@ -5,17 +5,22 @@
         "details": "Детальніше",
         "add": "Додати",
         "edit": "Редагувати",
-        "apply": "Зберегти зміни"
+        "apply": "Зберегти зміни",
+        "createdAt": "Створено",
+        "updatedAt": "Оновлено",
+        "actions": "Дії"
     },
     "header": {
-        "brand": "Health tracking system",
+        "brand": "Wine quality",
         "home": "На головну",
         "login": "Вхід",
         "logout": "Вихід",
         "profile": "Мій профіль",
-        "hospitals": "Мед. заклади",
-        "doctors": "Лікарі",
-        "patients": "Пацієнти"
+        "phases": "Фази процесу",
+        "parameters": "Параметри процесу",
+        "grape-sorts": "Сорти винограду",
+        "sensors": "Сенсори",
+        "users": "Користувачі"
     },
     "user": {
         "firstname": "Ім'я",
@@ -31,6 +36,15 @@
         "email": "Електронна пошта",
         "password": "Пароль",
         "submit": "Увійти"
+    },
+    "phases": {
+        "header": "Фази процесу виробництва вина",
+        "name": "Назва",
+        "parameters": "Параметри",
+        "configure-parameters": "Налаштувати параметри",
+        "details": {
+            "header": "Детальна інформація"
+        }
     },
     "profile": {
         "personal": {

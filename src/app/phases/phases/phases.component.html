@@ -2,11 +2,11 @@
 <main>
     <div class="container">
         <div class="row mb-3">
-            <h2 class="col-12">Available wine process phases</h2>
+            <h2 class="col-12">{{'phases.header' | translate}}</h2>
         </div>
         <div class="row mb-3">
             <div class="col-12">
-                <button mat-raised-button color="primary" (click)="openCreateDialog()">Add new</button>
+                <button mat-raised-button color="primary" (click)="openCreateDialog()">{{'common.add' | translate}}</button>
             </div>
         </div>
         <div class="row">
@@ -20,22 +20,22 @@
                         </ng-container>
 
                         <ng-container matColumnDef="createdAt">
-                            <th mat-header-cell *matHeaderCellDef>Created At</th>
+                            <th mat-header-cell *matHeaderCellDef>{{'common.createdAt' | translate}}</th>
                             <td mat-cell *matCellDef="let element">{{ element.createdAt | date }}</td>
                         </ng-container>
 
                         <ng-container matColumnDef="updatedAt">
-                            <th mat-header-cell *matHeaderCellDef>Updated At</th>
+                            <th mat-header-cell *matHeaderCellDef>{{'common.updatedAt' | translate}}</th>
                             <td mat-cell *matCellDef="let element">{{ element.updatedAt | date }}</td>
                         </ng-container>
 
                         <ng-container matColumnDef="actions">
-                            <th mat-header-cell *matHeaderCellDef>Actions</th>
+                            <th mat-header-cell *matHeaderCellDef>{{'common.actions' | translate}}</th>
                             <td mat-cell *matCellDef="let element">
                                 <button mat-icon-button (click)="openDetailsDialog(element.id)"><mat-icon>visibility</mat-icon></button>
                                 <button mat-icon-button color="accent" (click)="openEditDialog(element)"><mat-icon>edit</mat-icon></button>
                                 <button mat-icon-button color="warn" (click)="openDeleteDialog(element)"><mat-icon>delete</mat-icon></button>
-                                <button mat-button (click)="openParametersDialog(element)">Configure Parameters</button>
+                                <button mat-button (click)="openParametersDialog(element)">{{'phases.configure-parameters' | translate}}</button>
                             </td>
                         </ng-container>
 

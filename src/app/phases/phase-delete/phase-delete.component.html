@@ -1,8 +1,8 @@
-<h1 mat-dialog-title>Confirm Delete</h1>
+<h1 mat-dialog-title>{{'phases.delete.header' | translate}}</h1>
 <div mat-dialog-content>
-    <p>Are you sure you want to delete this phase?</p>
+    <p>{{'phases.delete.warning' | translate}}</p>
 </div>
 <div mat-dialog-actions>
-    <button mat-button (click)="cancel()">Cancel</button>
-    <button mat-raised-button color="warn" (click)="confirmDelete()">Delete</button>
+    <button mat-button (click)="cancel()">{{'common.cancel' | translate}}</button>
+    <button mat-raised-button color="warn" (click)="confirmDelete()">{{'common.confirm' | translate}}</button>
 </div>

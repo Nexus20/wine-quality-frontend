@@ -34,6 +34,7 @@ import { QualityPredictionDetailsModalComponent } from './quality-prediction-det
 import { WineMaterialBatchPhasePredictionHistoryComponent } from './wine-material-batch-phase-prediction-history/wine-material-batch-phase-prediction-history.component';
 import { WineMaterialBatchPhaseParameterChartModalComponent } from './wine-material-batch-phase-parameter-chart-modal/wine-material-batch-phase-parameter-chart-modal.component';
 import {NgChartsModule} from "ng2-charts";
+import {TranslateModule} from "@ngx-translate/core";
 
 
 @NgModule({
@@ -96,6 +97,7 @@ import {NgChartsModule} from "ng2-charts";
         MatCheckboxModule,
         MatCardModule,
         NgChartsModule,
+        TranslateModule,
     ],
     providers: [MatSnackBar]
 })

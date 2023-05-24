@@ -1,5 +1,9 @@
 import {IBaseResult} from "../../core/models/IBaseResult";
-import {IGrapeSortPhaseResult, IGrapeSortResult} from "../../grape-sorts/models/grape-sort-result";
+import {
+    IGrapeSortPhaseResult,
+    IGrapeSortProcessPhaseParameterStandardResult,
+    IGrapeSortResult
+} from "../../grape-sorts/models/grape-sort-result";
 import {IParameterResult} from "../../phases/models/phase-result";
 import {ISensorResult} from "../../sensors/models/sensor-result";
 
@@ -35,6 +39,7 @@ export interface IWineMaterialBatchGrapeSortPhaseParameterResult extends IBaseRe
 export interface IWineMaterialBatchGrapeSortPhaseParameterDetailsResult extends IBaseResult {
     parameter: IParameterResult;
     sensors: ISensorResult[];
+    standard: IGrapeSortProcessPhaseParameterStandardResult;
 }
 
 export interface IActiveWineMaterialBatchGrapeSortPhaseResult extends IWineMaterialBatchGrapeSortPhaseResult {

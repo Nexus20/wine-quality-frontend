@@ -1,14 +1,14 @@
-<h1 mat-dialog-title>Parameter Details</h1>
+<h1 mat-dialog-title>{{'parameters.details.header' | translate}}</h1>
 <div mat-dialog-content>
-    <p><strong>Parameter Name:</strong> {{ parameterDetail.name }}</p>
+    <p><strong>{{'parameters.name' | translate}}:</strong> {{ parameterDetail.name }}</p>
     <div *ngIf="parameterDetail.phases.length > 0">
-        <p><strong>Phases:</strong></p>
+        <p><strong>{{'parameters.phases' | translate}}:</strong></p>
         <ul>
             <li *ngFor="let parameter of parameterDetail.phases">{{ parameter.name }}</li>
         </ul>
     </div>
-    <p *ngIf="parameterDetail.phases.length === 0">No phases.</p>
+    <p *ngIf="parameterDetail.phases.length === 0">{{'parameters.details.no-phases' | translate}}</p>
 </div>
 <div mat-dialog-actions>
-    <button mat-button (click)="close()">Close</button>
+    <button mat-button (click)="close()">{{'common.close' | translate}}</button>
 </div>

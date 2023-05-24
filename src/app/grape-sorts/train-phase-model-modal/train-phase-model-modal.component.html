@@ -10,6 +10,6 @@
     </form>
 </div>
 <div mat-dialog-actions>
-    <button mat-button (click)="dialogRef.close()">Cancel</button>
+    <button mat-button (click)="dialogRef.close()">{{'common.cancel' | translate}}</button>
     <button mat-button (click)="trainModel()" [disabled]="trainModelForm.invalid">Train</button>
 </div>

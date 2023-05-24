@@ -18,7 +18,7 @@
                             </mat-panel-title>
                         </mat-expansion-panel-header>
 
-<!--                        <p>Standard: {{ parameterDetail.parameter. }}</p>-->
+                        <p>Standard: {{ parameterDetail.standard.lowerBound }}</p>
                         <button mat-button (click)="openChartDialog(parameterDetail)">Show Chart</button>
                         <mat-list>
                             <mat-list-item *ngFor="let sensor of parameterDetail.sensors">

@@ -5,17 +5,26 @@
         "details": "Details",
         "add": "Add new",
         "edit": "Edit",
-        "apply": "Apply changes"
+        "delete": "Delete",
+        "apply": "Apply changes",
+        "confirm": "Confirm",
+        "createdAt": "Created at",
+        "updatedAt": "Updated at",
+        "actions": "Actions",
+        "close": "Close",
+        "cancel": "Cancel"
     },
     "header": {
-        "brand": "Health tracking system",
+        "brand": "Wine quality",
         "home": "Home",
         "login": "Login",
         "logout": "Logout",
         "profile": "Profile",
-        "hospitals": "Hospitals",
-        "doctors": "Doctors",
-        "patients": "Patients"
+        "phases": "Process phases",
+        "parameters": "Process parameters",
+        "grape-sorts": "Grape sorts",
+        "sensors": "Sensors",
+        "users": "Users"
     },
     "user": {
         "firstname": "Firstname",
@@ -31,6 +40,121 @@
         "email": "Email",
         "password": "Password",
         "submit": "Log in"
+    },
+    "phases": {
+        "header": "Available wine process phases",
+        "name": "Name",
+        "parameters": "Parameters",
+        "configure-parameters": "Configure phase parameters",
+        "details": {
+            "header": "Phase details",
+            "no-parameters": "This phase doesn't have any parameters yet."
+        },
+        "create": {
+            "header": "Create new phase"
+        },
+        "edit": {
+            "header": "Edit phase"
+        },
+        "delete": {
+            "header": "Configure phase deletion",
+            "warning": "Are you sure you want to delete this phase? This action cannot be undone."
+        },
+        "configure-parameters-modal": {
+            "header": "Configure phase parameters",
+            "link": "Link parameters",
+            "unlink": "Unlink parameters",
+            "available-parameters": "Available parameters",
+            "linked-parameters": "Linked parameters"
+        }
+    },
+    "parameters": {
+        "header": "Available wine process parameters",
+        "name": "Name",
+        "phases": "Phases",
+        "details": {
+            "header": "Parameter details",
+            "no-phases": "This parameter hasn't been linked to any phase yet."
+        },
+        "create": {
+            "header": "Create new parameter"
+        },
+        "edit": {
+            "header": "Edit parameter"
+        },
+        "delete": {
+            "header": "Configure parameter deletion",
+            "warning": "Are you sure you want to delete this parameter? This action cannot be undone."
+        }
+    },
+    "grape-sorts": {
+        "header": "Available grape sorts",
+        "name": "Name",
+        "details": {
+            "header": "Grape sort details",
+            "phases": "Phases",
+            "wine-material-batches": "Wine material batches"
+        },
+        "create": {
+            "header": "Create new grape sort"
+        },
+        "edit": {
+            "header": "Edit grape sort"
+        },
+        "delete": {
+            "header": "Configure grape sort deletion",
+            "warning": "Are you sure you want to delete this grape sort? This action cannot be undone."
+        }
+    },
+    "grape-sorts-phases": {
+        "order": "Order",
+        "parameters": "Parameters",
+        "standards-settings": "Configure standards",
+        "quality-prediction-settings": "Quality prediction settings"
+    },
+    "wine-material-batches": {
+        "header": "Wine material batches",
+        "grape-sort": "Grape sort",
+        "name": "Name",
+        "harvest-date": "Harvest date",
+        "harvest-location": "Harvest location",
+        "phases": "Phases",
+        "details": {
+            "header": "Wine material batch details",
+            "phases": "Phases"
+        },
+        "create": {
+            "header": "Create new wine material batch"
+        },
+        "edit": {
+            "header": "Edit wine material batch"
+        },
+        "delete": {
+            "header": "Configure wine material batch deletion",
+            "warning": "Are you sure you want to delete this wine material batch? This action cannot be undone."
+        }
+    },
+    "sensors":  {
+        "header": "Available sensors",
+        "id": "Device ID",
+        "phase": "Phase",
+        "parameter": "Parameter",
+        "status": "Status",
+        "copy-device-key": "Copy device key",
+        "details": {
+            "header": "Sensor details",
+            "no-phases": "This sensor hasn't been linked to any phase yet."
+        },
+        "create": {
+            "header": "Create new sensor"
+        },
+        "edit": {
+            "header": "Edit sensor"
+        },
+        "delete": {
+            "header": "Configure sensor deletion",
+            "warning": "Are you sure you want to delete this sensor? This action cannot be undone."
+        }
     },
     "profile": {
         "personal": {
@@ -83,7 +207,7 @@
         "header": "Patients"
     },
     "patient-create": {
-        "header": "Add new patient"
+        "header": "{{'common.add' | translate}} patient"
     },
     "hospitals": {
         "header": "Hospitals",
@@ -91,10 +215,10 @@
         "patients-count": "Patients"
     },
     "hospital-add": {
-        "header": "Add new hospital",
+        "header": "{{'common.add' | translate}} hospital",
         "name": "Hospital name",
         "address": "Hospital address",
-        "submit": "Add new hospital"
+        "submit": "{{'common.add' | translate}} hospital"
     },
     "hospital-view": {
         "header": "Hospital info",
@@ -120,7 +244,7 @@
         "header": "Doctor profile"
     },
     "doctor-create": {
-        "header": "Add new doctor"
+        "header": "{{'common.add' | translate}} doctor"
     },
     "doctor-edit": {
         "header": "Doctor edit"

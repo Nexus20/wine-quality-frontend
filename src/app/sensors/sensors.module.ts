@@ -19,6 +19,7 @@ import {SensorDetailsComponent} from './sensor-details/sensor-details.component'
 import {sensorResolver, sensorsResolver} from "./resolvers/sensors.resolvers";
 import { SensorCreateModalComponent } from './sensor-create-modal/sensor-create-modal.component';
 import { SensorDeleteModalComponent } from './sensor-delete-modal/sensor-delete-modal.component';
+import {TranslateModule} from "@ngx-translate/core";
 
 
 @NgModule({
@@ -60,6 +61,7 @@ import { SensorDeleteModalComponent } from './sensor-delete-modal/sensor-delete-
         MatSelectModule,
         FormsModule,
         MatDatepickerModule,
+        TranslateModule,
     ],
     providers: [MatSnackBar]
 })

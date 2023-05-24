@@ -16,6 +16,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {MatInputModule} from "@angular/material/input";
 import {PhaseParametersComponent} from './phase-parameters/phase-parameters.component';
 import {MatListModule} from "@angular/material/list";
+import {TranslateModule} from "@ngx-translate/core";
 
 @NgModule({
     declarations: [
@@ -46,6 +47,7 @@ import {MatListModule} from "@angular/material/list";
         MatInputModule,
         MatListModule,
         MatListModule,
+        TranslateModule,
     ]
 })
 export class PhasesModule {
