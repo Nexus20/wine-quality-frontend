@@ -5,53 +5,57 @@
             <div class="col-12">
                 <div class="wine-material-batch-details">
                     <h2>{{ wineMaterialBatchDetails.name }}</h2>
-                    <p>Harvest Date: {{ wineMaterialBatchDetails.harvestDate | date }}</p>
-                    <p>Harvest Location: {{ wineMaterialBatchDetails.harvestLocation }}</p>
-                    <p>Grape Sort: {{ wineMaterialBatchDetails.grapeSort.name }}</p>
+                    <p>{{'wine-material-batches.harvest-date' | translate}}: {{ wineMaterialBatchDetails.harvestDate | date }}</p>
+                    <p>{{'wine-material-batches.harvest-location' | translate}}: {{ wineMaterialBatchDetails.harvestLocation }}</p>
+                    <p>{{'wine-material-batches.grape-sort' | translate}}: {{ wineMaterialBatchDetails.grapeSort.name }}</p>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-8">
                 <section class="phases-section">
-                    <h3>Phases</h3>
+                    <h3>{{'wine-material-batches.phases.header' | translate}}</h3>
                     <div>
-                        <button mat-raised-button color="primary" (click)="openPhasesEditDialog(wineMaterialBatchDetails.phases)">Edit</button>
+                        <button mat-raised-button color="primary" (click)="openPhasesEditDialog(wineMaterialBatchDetails.phases)">{{'wine-material-batches.phases.edit' | translate}}</button>
                     </div>
                     <mat-list>
                         <mat-list-item *ngFor="let phase of wineMaterialBatchDetails.phases">
                             <div class="phase-card">
                                 <h3 matListItemTitle>{{ phase.phase.phaseName }}</h3>
-                                <p matListItemLine>Start Date: {{ phase.startDate | date }}</p>
-                                <p matListItemLine>End Date: {{ phase.endDate | date }}</p>
-                                <button mat-button (click)="openSensorsDialog(phase)">Sensors</button>
-                                <a mat-button [routerLink]="['phases/' + phase.id + '/details']">Details</a>
+                                <p matListItemLine>{{'wine-material-batches.phases.start-date' | translate}}: {{ phase.startDate | date }}</p>
+                                <p matListItemLine>{{'wine-material-batches.phases.end-date' | translate}}: {{ phase.endDate | date }}</p>
+                                <button mat-button (click)="openSensorsDialog(phase)">
+                                    {{'wine-material-batches.phases.sensors' | translate}}
+                                </button>
+                                <a mat-button [routerLink]="['phases/' + phase.id + '/details']">
+                                    {{'wine-material-batches.phases.details' | translate}}
+                                </a>
                             </div>
                         </mat-list-item>
                     </mat-list>
                 </section>
             </div>
             <div class="col-4 active-phase-section">
-                <h3>Active Phase</h3>
+                <h3>{{'wine-material-batches.active-phase.header' | translate}}</h3>
                 <ng-container *ngIf="wineMaterialBatchDetails.activePhase; else noActivePhase">
-                    <p>Phase: {{ wineMaterialBatchDetails.activePhase.phase.phaseName }}</p>
-                    <p>Start Date: {{ wineMaterialBatchDetails.activePhase.startDate | date }}</p>
-                    <p>End Date: {{ wineMaterialBatchDetails.activePhase.endDate | date }}</p>
-                    <h4>Readings</h4>
+                    <p>{{'wine-material-batches.active-phase.phase' | translate}}: {{ wineMaterialBatchDetails.activePhase.phase.phaseName }}</p>
+                    <p>{{'wine-material-batches.active-phase.start-date' | translate}}: {{ wineMaterialBatchDetails.activePhase.startDate | date }}</p>
+                    <p>{{'wine-material-batches.active-phase.end-date' | translate}}: {{ wineMaterialBatchDetails.activePhase.endDate | date }}</p>
+                    <h4>{{'wine-material-batches.active-phase.readings' | translate}}</h4>
                     <div *ngFor="let reading of wineMaterialBatchDetails.activePhase.readings">
                         <p>{{ reading.parameterName }}: {{ reading.value }}</p>
                     </div>
                 </ng-container>
                 <ng-template #noActivePhase>
-                    <p>The process has not been started yet.</p>
+                    <p>{{'wine-material-batches.no-active-phase.phase' | translate}}</p>
                     <div *ngIf="!startProcessAllowed">
-                        <p>Process start is not allowed due to the following reasons:</p>
+                        <p>{{'wine-material-batches.no-active-phase.cannot-start-reasons' | translate}}:</p>
                         <ul>
                             <li *ngFor="let reason of startProcessNotAllowedReasons">{{ reason }}</li>
                         </ul>
                     </div>
                     <div *ngIf="startProcessAllowed">
-                        <p>Process start is allowed.</p>
+                        <p>{{'wine-material-batches.no-active-phase.start-allowed' | translate}}.</p>
                     </div>
                 </ng-template>
             </div>

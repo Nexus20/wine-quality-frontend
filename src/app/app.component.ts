@@ -20,6 +20,7 @@ export class AppComponent implements OnInit {
     this.translateService.setDefaultLang(environment.defaultLocale)
     this.translateService.addLangs(['en-US', 'uk-UA']);
     const language = this.store.selectSnapshot(ProfileState.selectLanguage);
+    // const language = 'uk-UA'
     this.translateService.use(language);
   }
 }

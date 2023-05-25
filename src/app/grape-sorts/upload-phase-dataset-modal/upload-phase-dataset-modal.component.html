@@ -1,4 +1,4 @@
-<h2 mat-dialog-title>Upload new dataset</h2>
+<h2 mat-dialog-title>{{'quality-prediction-settings.datasets.upload.header' | translate}}</h2>
 <div mat-dialog-content>
     <form [formGroup]="uploadForm">
         <input type="file" formControlName="files" required multiple accept=".csv" (change)="onFileChange($event)" />
@@ -6,5 +6,5 @@
 </div>
 <div mat-dialog-actions>
     <button mat-button (click)="cancel()">{{'common.cancel' | translate}}</button>
-    <button mat-raised-button color="primary" (click)="uploadDatasets()" [disabled]="uploadForm.invalid">Upload</button>
+    <button mat-raised-button color="primary" (click)="uploadDatasets()" [disabled]="uploadForm.invalid">{{'common.confirm' | translate}}</button>
 </div>

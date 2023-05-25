@@ -57,7 +57,7 @@
             "header": "Edit phase"
         },
         "delete": {
-            "header": "Configure phase deletion",
+            "header": "Confirm phase deletion",
             "warning": "Are you sure you want to delete this phase? This action cannot be undone."
         },
         "configure-parameters-modal": {
@@ -83,7 +83,7 @@
             "header": "Edit parameter"
         },
         "delete": {
-            "header": "Configure parameter deletion",
+            "header": "Confirm parameter deletion",
             "warning": "Are you sure you want to delete this parameter? This action cannot be undone."
         }
     },
@@ -102,7 +102,7 @@
             "header": "Edit grape sort"
         },
         "delete": {
-            "header": "Configure grape sort deletion",
+            "header": "Confirm grape sort deletion",
             "warning": "Are you sure you want to delete this grape sort? This action cannot be undone."
         }
     },
@@ -112,13 +112,62 @@
         "standards-settings": "Configure standards",
         "quality-prediction-settings": "Quality prediction settings"
     },
+    "quality-prediction-settings": {
+        "header": "Quality prediction settings",
+        "datasets": {
+            "header": "Datasets",
+            "upload": {
+                "header": "Upload dataset",
+                "button": "Upload dataset"
+            },
+            "download": "Download",
+            "delete": {
+                "header": "Confirm dataset deletion",
+                "warning": "Are you sure you want to delete this dataset? This action cannot be undone."
+            }
+        },
+        "models": {
+            "header": "Machine learning models",
+            "train": {
+                "header": "Train new model",
+                "button": "Train",
+                "select-dataset": "Select dataset"
+            },
+            "dataset": "Dataset",
+            "download": "Download",
+            "delete": {
+                "header": "Confirm model deletion",
+                "warning": "Are you sure you want to delete this model? This action cannot be undone."
+            }
+        }
+    },
     "wine-material-batches": {
         "header": "Wine material batches",
         "grape-sort": "Grape sort",
         "name": "Name",
         "harvest-date": "Harvest date",
         "harvest-location": "Harvest location",
-        "phases": "Phases",
+        "phases": {
+            "header": "Phases",
+            "edit": "Edit",
+            "details": "Details",
+            "sensors": "Sensors",
+            "start-date": "Start date",
+            "end-date": "End date",
+            "assign-sensors": "Assign Sensors to this phase"
+        },
+        "active-phase": {
+            "header": "Active phase",
+            "phase": "Phase",
+            "start-date": "Start date",
+            "end-date": "End date",
+            "readings": "Readings"
+        },
+        "no-active-phase": {
+            "header": "The process has not been started yet.",
+            "cannot-start-reasons": "Process start is not allowed due to the following reasons",
+            "start-allowed": "Process start is allowed."
+        },
         "details": {
             "header": "Wine material batch details",
             "phases": "Phases"
@@ -130,8 +179,56 @@
             "header": "Edit wine material batch"
         },
         "delete": {
-            "header": "Configure wine material batch deletion",
+            "header": "Confirm wine material batch deletion",
             "warning": "Are you sure you want to delete this wine material batch? This action cannot be undone."
+        }
+    },
+    "wine-material-batch-phases": {
+        "phase-status": {
+            "header": "Phase status",
+            "status": "Status",
+            "start-date": "Start date",
+            "end-date": "End date",
+            "process-running": "Process is running",
+            "predict-quality": "Predict quality",
+            "prediction-details": "Prediction details",
+            "predictions-history": "Predictions history",
+            "process-not-running": "The process has not been started yet.",
+            "cannot-start-reasons": "Process start is not allowed due to the following reasons",
+            "start-allowed": "Process start is allowed.",
+            "start-process": "Start process"
+        },
+        "phase": {
+            "header": "Phase",
+            "parameters": {
+                "header": "Parameters",
+                "standard": "Standard",
+                "show-chart": "Show chart"
+            }
+        },
+        "predict-quality": {
+            "header": "Select machine learning model",
+            "predict": "Predict",
+            "select-model": "Select model",
+            "accuracy": "Accuracy",
+            "trained-at": "Trained at"
+        },
+        "prediction-details": {
+            "header": "Prediction details",
+            "quality": "Quality",
+            "explanation": "Explanation",
+            "reason": "Reason",
+            "value": "Value",
+            "severity": "Severity",
+            "download-report": "Download report"
+        },
+        "prediction-history": {
+            "header": "Quality prediction history",
+            "grape-sort": "Grape sort",
+            "phase": "Phase",
+            "wine-material-batch": "Wine material batch",
+            "prediction-date": "Prediction date",
+            "predicted-quality": "Predicted quality"
         }
     },
     "sensors":  {
@@ -152,7 +249,7 @@
             "header": "Edit sensor"
         },
         "delete": {
-            "header": "Configure sensor deletion",
+            "header": "Confirm sensor deletion",
             "warning": "Are you sure you want to delete this sensor? This action cannot be undone."
         }
     },
@@ -160,98 +257,12 @@
         "personal": {
             "header": "Your personal information",
             "email": "Email",
-            "phone": "Phone",
-            "dob": "Birth date"
-        },
-        "hospital": {
-            "header": "Your hospital info",
-            "name": "Name",
-        "address": "Address"
-        },
-        "patients": {
-            "header": "Your patients"
-        },
-        "patient-doctor": {
-            "header": "Your doctor",
-            "no-doctor-alert": "It looks like you haven't been assigned to any doctor yet. Or, perhaps you are being transferred to another doctor."
-        },
-        "health-measurements": {
-            "header": "Your health measurements",
-            "heart-rate": "Heart rate"
-        },
-        "patient-caretaker": {
-            "header": "Your caretaker",
-            "no-caretaker-warning": "You don't have a caretaker yet."
+            "phone": "Phone"
         }
-    },
-    "patient-profile": {
-        "header": "Patient profile",
-        "health-measurements": {
-            "header": "Patient's measurements",
-            "heart-rate": "Heart rate"
-        },
-        "patient-doctor": {
-            "header": "Patient's doctor",
-            "change-doctor": "Change doctor",
-            "no-doctor-warning": "This patient hasn't been assigned to any doctor yet.",
-            "add-to-doctor": "Assign doctor to the patient"
-        },
-        "patient-caretaker": {
-            "header": "Patient's caretaker",
-            "change-caretaker": "Change caretaker",
-            "no-caretaker-warning": "This patient doesn't have a caretaker yet.",
-            "add-caretaker": "Assign caretaker to the patient"
-        }
-    },
-    "patients": {
-        "header": "Patients"
-    },
-    "patient-create": {
-        "header": "{{'common.add' | translate}} patient"
-    },
-    "hospitals": {
-        "header": "Hospitals",
-        "doctors-count": "Doctors",
-        "patients-count": "Patients"
-    },
-    "hospital-add": {
-        "header": "{{'common.add' | translate}} hospital",
-        "name": "Hospital name",
-        "address": "Hospital address",
-        "submit": "{{'common.add' | translate}} hospital"
-    },
-    "hospital-view": {
-        "header": "Hospital info",
-        "address": "Address",
-        "administrators": "Administrators"
-    },
-    "hospital-administrators": {
-        "header": "Hospital administrators"
-    },
-    "hospital-administrator-view": {
-        "header": "Hospital administrator profile"
-    },
-    "hospital-administrator-edit": {
-        "header": "Edit hospital administrator profile"
-    },
-    "hospital-administrator-create": {
-        "header": "Create new hospital administrator profile"
-    },
-    "doctors": {
-        "header": "Doctors"
-    },
-    "doctor-view": {
-        "header": "Doctor profile"
-    },
-    "doctor-create": {
-        "header": "{{'common.add' | translate}} doctor"
-    },
-    "doctor-edit": {
-        "header": "Doctor edit"
     },
     "roles": {
-        "root": "root",
-        "doctor": "doctor",
-        "patient": "patient"
+        "root": "Root",
+        "admin": "Admin",
+        "user": "User"
     }
 }

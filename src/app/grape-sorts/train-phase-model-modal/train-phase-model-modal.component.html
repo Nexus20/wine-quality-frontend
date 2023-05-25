@@ -1,8 +1,8 @@
-<h2 mat-dialog-title>Train new model</h2>
+<h2 mat-dialog-title>{{'quality-prediction-settings.models.train.header' | translate}}</h2>
 <div mat-dialog-content>
     <form [formGroup]="trainModelForm">
         <mat-form-field>
-            <mat-label>Select dataset</mat-label>
+            <mat-label>{{'quality-prediction-settings.models.train.select-dataset' | translate}}</mat-label>
             <mat-select formControlName="datasetId">
                 <mat-option *ngFor="let dataset of data.datasets" [value]="dataset.id">{{dataset.datasetInfo.name}}</mat-option>
             </mat-select>
@@ -11,5 +11,5 @@
 </div>
 <div mat-dialog-actions>
     <button mat-button (click)="dialogRef.close()">{{'common.cancel' | translate}}</button>
-    <button mat-button (click)="trainModel()" [disabled]="trainModelForm.invalid">Train</button>
+    <button mat-button (click)="trainModel()" [disabled]="trainModelForm.invalid">{{'common.confirm' | translate}}</button>
 </div>

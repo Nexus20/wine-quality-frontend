@@ -4,8 +4,8 @@
         <div class="row mb-3">
             <div class="col-12">
                 <h1>{{ wineMaterialBatchDetails.name }}</h1>
-                <p>Grape Sort: {{ wineMaterialBatchDetails.grapeSort.name }}</p>
-                <p>Phase: {{ wineMaterialBatchGrapeSortPhaseDetails.phase.phaseName }}</p>
+                <p>{{'wine-material-batches.grape-sort' | translate}}: {{ wineMaterialBatchDetails.grapeSort.name }}</p>
+                <p>{{'wine-material-batch-phases.phase.header' | translate}}: {{ wineMaterialBatchGrapeSortPhaseDetails.phase.phaseName }}</p>
             </div>
         </div>
         <div class="row">
@@ -18,8 +18,8 @@
                             </mat-panel-title>
                         </mat-expansion-panel-header>
 
-                        <p>Standard: {{ parameterDetail.standard.lowerBound }}</p>
-                        <button mat-button (click)="openChartDialog(parameterDetail)">Show Chart</button>
+                        <p>{{'wine-material-batch-phases.phase.parameters.standard' | translate}}: {{ parameterDetail.standard.lowerBound }}</p>
+                        <button mat-button (click)="openChartDialog(parameterDetail)">{{'wine-material-batch-phases.phase.parameters.show-chart' | translate}}</button>
                         <mat-list>
                             <mat-list-item *ngFor="let sensor of parameterDetail.sensors">
                                 {{ sensor.id }} ({{statuses[sensor.status]}}): {{ sensor.lastValue | number:'1.0-5' }}
@@ -31,31 +31,31 @@
             <div class="col-4">
                 <mat-card class="example-card">
                     <mat-card-header>
-                        <mat-card-title>Phase status</mat-card-title>
+                        <mat-card-title>{{'wine-material-batch-phases.phase-status.header' | translate}}</mat-card-title>
                     </mat-card-header>
                     <mat-card-content>
 
                         <ng-container *ngIf="wineMaterialBatchGrapeSortPhaseDetails.isActive; else phaseIsNotActive">
-                            <p>Process is running</p>
-                            <button mat-raised-button color="primary" (click)="openPredictQualityModal()">Predict quality</button>
+                            <p>{{'wine-material-batch-phases.phase-status.process-running' | translate}}</p>
+                            <button mat-raised-button color="primary" (click)="openPredictQualityModal()">{{'wine-material-batch-phases.phase-status.predict-quality' | translate}}</button>
                             <ng-container *ngIf="predictionResult">
-                                <button mat-raised-button color="primary" (click)="openShowPredictionDetailsModal()">Prediction details</button>
+                                <button mat-raised-button color="primary" (click)="openShowPredictionDetailsModal()">{{'wine-material-batch-phases.phase-status.prediction-details' | translate}}</button>
                             </ng-container>
                         </ng-container>
                         <ng-template #phaseIsNotActive>
                             <div *ngIf="!startProcessAllowed">
-                                <p>Process start is not allowed due to the following reasons:</p>
+                                <p>{{'wine-material-batch-phases.phase-status.cannot-start-reasons' | translate}}:</p>
                                 <ul>
                                     <li *ngFor="let reason of startProcessNotAllowedReasons">{{ reason }}</li>
                                 </ul>
                             </div>
                             <div *ngIf="startProcessAllowed">
-                                <p>Process start is allowed.</p>
-                                <button mat-raised-button color="primary" (click)="openStartPhaseProcessModal()">Start process</button>
+                                <p>{{'wine-material-batch-phases.phase-status.start-allowed' | translate}}</p>
+                                <button mat-raised-button color="primary" (click)="openStartPhaseProcessModal()">{{'wine-material-batch-phases.phase-status.start-process' | translate}}</button>
                             </div>
                         </ng-template>
                         <div>
-                            <a mat-raised-button [routerLink]="['/wine-material-batches/'+this.wineMaterialBatchDetails.id + '/phases/' + this.wineMaterialBatchGrapeSortPhaseDetails.id + '/predictions-history']">Predictions history</a>
+                            <a mat-raised-button [routerLink]="['/wine-material-batches/'+this.wineMaterialBatchDetails.id + '/phases/' + this.wineMaterialBatchGrapeSortPhaseDetails.id + '/predictions-history']">{{'wine-material-batch-phases.phase-status.predictions-history' | translate}}</a>
                         </div>
                     </mat-card-content>
                     <mat-card-actions>

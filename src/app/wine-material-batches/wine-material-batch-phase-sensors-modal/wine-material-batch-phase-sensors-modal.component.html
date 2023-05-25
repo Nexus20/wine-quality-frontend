@@ -1,4 +1,4 @@
-<h2 mat-dialog-title>Sensors</h2>
+<h2 mat-dialog-title>{{'wine-material-batches.phases.sensors' | translate}}</h2>
 <mat-dialog-content>
     <mat-accordion>
         <mat-expansion-panel *ngFor="let group of wineMaterialBatchPhaseSensors">
@@ -9,14 +9,14 @@
             </mat-expansion-panel-header>
 
             <div *ngFor="let sensor of group.sensors">
-                <p>ID: {{ sensor.id }} | Status: {{statuses[sensor.status]}}</p>
+                <p>{{'sensors.id' | translate}}: {{ sensor.id }} | {{'sensors.status' | translate}}: {{statuses[sensor.status]}}</p>
             </div>
         </mat-expansion-panel>
     </mat-accordion>
     <ng-container *ngIf="availableSensors && availableSensors.length > 0">
         <form [formGroup]="assignSensorForm" (ngSubmit)="onSubmit()">
             <div formArrayName="sensorGroups" *ngFor="let group of sensorFormGroups; let i = index">
-                <h3>Parameter Name: {{availableSensors[i].parameterName}}</h3>
+                <h3>{{'sensors.parameter' | translate}}: {{availableSensors[i].parameterName}}</h3>
                 <div [formGroupName]="i">
                     <div formArrayName="sensors">
                         <div *ngFor="let sensor of availableSensors[i].sensors; let j = index">
@@ -25,7 +25,7 @@
                     </div>
                 </div>
             </div>
-            <button mat-raised-button color="primary" type="submit">Assign Sensors to this phase</button>
+            <button mat-raised-button color="primary" type="submit">{{'wine-material-batches.phases.assign-sensors' | translate}}</button>
         </form>
     </ng-container>
 </mat-dialog-content>

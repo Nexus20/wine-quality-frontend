@@ -1,10 +1,10 @@
-<h1 mat-dialog-title>Select machine learning model</h1>
+<h1 mat-dialog-title>{{'wine-material-batch-phases.predict-quality.header' | translate}}</h1>
 <div mat-dialog-content>
     <form [formGroup]="predictionForm" (ngSubmit)="predictQuality()">
         <mat-form-field>
-            <mat-select placeholder="Select Model" formControlName="selectedModel">
+            <mat-select placeholder="{{'wine-material-batch-phases.predict-quality.select-model' | translate}}" formControlName="selectedModel">
                 <mat-option *ngFor="let model of models" [value]="model.id">
-                    {{model.modelName}} Accuracy: {{model.accuracy}} Trained at {{model.createdAt}}
+                    {{model.modelName}} {{'wine-material-batch-phases.predict-quality.accuracy' | translate}}: {{model.accuracy}} {{'wine-material-batch-phases.predict-quality.trained-at' | translate}} {{model.createdAt}}
                 </mat-option>
             </mat-select>
         </mat-form-field>
@@ -12,5 +12,5 @@
 </div>
 <div mat-dialog-actions>
     <button mat-button (click)="cancel()">{{'common.cancel' | translate}}</button>
-    <button mat-raised-button color="primary" (click)="predictQuality()">Predict</button>
+    <button mat-raised-button color="primary" (click)="predictQuality()">{{'wine-material-batch-phases.predict-quality.predict' | translate}}</button>
 </div>

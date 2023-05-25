@@ -15,7 +15,7 @@
                     <table mat-table [dataSource]="phases" class="mat-table">
 
                         <ng-container matColumnDef="name">
-                            <th mat-header-cell *matHeaderCellDef>Name</th>
+                            <th mat-header-cell *matHeaderCellDef>{{'phases.name' | translate}}</th>
                             <td mat-cell *matCellDef="let element">{{ element.name }}</td>
                         </ng-container>
 
