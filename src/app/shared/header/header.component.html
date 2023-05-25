@@ -37,6 +37,11 @@
                             <a class="nav-link" style="cursor: pointer;" (click)="logout()">{{'header.logout' | translate}}</a>
                         </li>
                     </ng-template>
+                    <li class="nav-item dropdown">
+                        <select class="form-control" [(ngModel)]="selectedLanguage" name="selectedLanguage" (change)="setLanguage()">
+                            <option *ngFor="let language of languages" value="{{language}}">{{ language }}</option>
+                        </select>
+                    </li>
                 </ul>
             </div>
         </div>

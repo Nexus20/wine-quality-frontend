@@ -29,10 +29,8 @@
     "user": {
         "firstname": "Firstname",
         "lastname": "Lastname",
-        "patronymic": "Patronymic",
         "phone": "Phone",
         "email": "Email",
-        "dob": "Date of birth",
         "password": "Password"
     },
     "login": {

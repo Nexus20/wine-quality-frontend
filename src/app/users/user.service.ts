@@ -36,4 +36,8 @@ export class UserService {
     public getById = (id: string) => {
         return this.httpClient.get<IUserResult>(`${this.api}user/${id}`);
     }
+
+    public setLanguage(id: string, newLanguage: string) {
+        return this.httpClient.patch(`${this.api}user/${id}/set_language`, {newLanguage: newLanguage});
+    }
 }

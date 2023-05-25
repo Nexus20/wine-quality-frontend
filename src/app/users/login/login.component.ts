@@ -70,7 +70,6 @@ export class LoginComponent implements OnInit, OnDestroy {
                             });
                         }, timeout);
 
-
                         this.router.navigateByUrl('/');
                     });
                 }, error: (error) => {

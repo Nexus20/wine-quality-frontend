@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
 
     ngOnInit(): void {
         const userProfile = this.store.selectSnapshot(ProfileState.selectProfile);
-        if(userProfile === undefined) {
+        if(!userProfile?.firstName) {
             this.userFullName = "Guest"
         } else {
             this.userFullName = `${userProfile?.lastName} ${userProfile?.firstName}`;

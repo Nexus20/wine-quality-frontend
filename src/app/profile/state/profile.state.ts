@@ -5,18 +5,28 @@ import {UserService} from "../../users/user.service";
 import {ClearProfile, GetOwnProfile, SetLanguage} from "./profile.actions";
 import {tap} from "rxjs";
 import {environment} from "../../../environments/environment";
+import {TranslateService} from "@ngx-translate/core";
 
 @State<ProfileStateModel>({
     name: 'profile',
     defaults: {
-        profile: undefined
+        profile: {
+            id: '',
+            firstName: '',
+            lastName: '',
+            email: '',
+            phone: '',
+            selectedCulture: environment.defaultLocale,
+            createdAt: new Date(),
+            updatedAt: new Date()
+        }
     }
 })
 
 @Injectable()
 export class ProfileState {
 
-    constructor(private store: Store, private userService: UserService) {
+    constructor(private store: Store, private userService: UserService, private translateService: TranslateService) {
     }
 
     @Selector()
@@ -26,7 +36,7 @@ export class ProfileState {
 
     @Selector()
     static selectLanguage(state: ProfileStateModel) {
-        return state.profile?.selectedCulture ?? environment.defaultLocale;
+        return state.profile?.selectedCulture!;
     }
 
     @Action(GetOwnProfile)
@@ -35,13 +45,23 @@ export class ProfileState {
             const state = ctx.getState();
             state.profile = returnData;
             ctx.setState(state);
+            this.translateService.use(returnData.selectedCulture);
         }));
     }
 
     @Action(ClearProfile)
     clearProfile(ctx: StateContext<ProfileStateModel>, {}: ClearProfile) {
         const state = ctx.getState();
-        state.profile = undefined;
+        state.profile = {
+            id: '',
+            firstName: '',
+            lastName: '',
+            email: '',
+            phone: '',
+            selectedCulture: environment.defaultLocale,
+            createdAt: new Date(),
+            updatedAt: new Date()
+        };
         ctx.setState(state);
     }
 
@@ -50,5 +70,9 @@ export class ProfileState {
         const state = ctx.getState();
         state.profile!.selectedCulture = newLanguage;
         ctx.setState(state);
+
+        if(state.profile?.id) {
+            this.userService.setLanguage(state.profile.id, newLanguage).subscribe();
+        }
     }
 }
