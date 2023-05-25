@@ -1,0 +1,36 @@
+<app-header></app-header>
+<main>
+    <div class="container">
+        <div class="row mb-3">
+            <div class="col-12">
+                <h2>{{'profile.edit.header' | translate}}</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <form [formGroup]="editForm" (ngSubmit)="editProfile()">
+                    <div>
+                        <mat-form-field>
+                            <mat-label>{{'users.firstname' | translate}}</mat-label>
+                            <input matInput formControlName="firstName" required/>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-form-field>
+                            <mat-label>{{'users.lastname' | translate}}</mat-label>
+                            <input matInput formControlName="lastName" required/>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-form-field>
+                            <mat-label>{{'users.phone' | translate}}</mat-label>
+                            <input matInput formControlName="phone" required/>
+                        </mat-form-field>
+                    </div>
+                    <button mat-raised-button color="primary" [disabled]="editForm.invalid"
+                            type="submit">{{'common.confirm' | translate}}</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>

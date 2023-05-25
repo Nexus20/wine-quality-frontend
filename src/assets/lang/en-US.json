@@ -278,10 +278,9 @@
         }
     },
     "profile": {
-        "personal": {
-            "header": "Your personal information",
-            "email": "Email",
-            "phone": "Phone"
+        "header": "Your personal information",
+        "edit": {
+            "header": "Edit your personal information"
         }
     },
     "roles": {

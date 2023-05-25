@@ -48,4 +48,8 @@ export class UsersService {
     public update(userToUpdate: { FirstName: any; Phone: any; Id: string; LastName: any }) {
         return this.httpClient.put(`${this.api}user/${userToUpdate.Id}`, userToUpdate);
     }
+
+    public updateOwnProfile(userToUpdate: { FirstName: any; Phone: any; LastName: any }) {
+        return this.httpClient.put(`${this.api}profile`, userToUpdate);
+    }
 }

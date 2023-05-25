@@ -1,0 +1,27 @@
+<app-header></app-header>
+<main>
+    <div class="container">
+        <div class="row mb-3">
+            <div class="col-12">
+                <h2>{{'profile.header' | translate}}</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <p><strong>{{ 'users.firstname' | translate }}:</strong> {{ profile.firstName }}</p>
+                <p><strong>{{ 'users.lastname' | translate }}:</strong> {{ profile.lastName }}</p>
+                <p><strong>{{ 'users.email' | translate }}:</strong> {{ profile.email }}</p>
+                <p><strong>{{ 'users.phone' | translate }}:</strong> {{ profile.phone }}</p>
+                <p><strong>{{ 'users.roles' | translate }}:</strong></p>
+                <ul>
+                    <li *ngFor="let role of profile.roles">{{ role.name }}</li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <a mat-raised-button [routerLink]="['edit']">{{'common.edit' | translate}}</a>
+            </div>
+        </div>
+    </div>
+</main>

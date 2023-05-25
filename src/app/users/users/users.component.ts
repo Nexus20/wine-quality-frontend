@@ -22,7 +22,6 @@ export class UsersComponent implements OnInit {
     }
 
     ngOnInit(): void {
-
         this.activatedRoute.data.subscribe(({users}) => {
             this.users = users;
         })
