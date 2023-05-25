@@ -3,7 +3,7 @@ import {Action, Selector, State, StateContext} from "@ngxs/store";
 import {tap} from "rxjs";
 import {IAuthState} from "./auth.model";
 import {Login, Logout} from "./auth.action";
-import {UserService} from "../user.service";
+import {UsersService} from "../users.service";
 import {JwtHelperService} from "@auth0/angular-jwt";
 
 @State<IAuthState>({
@@ -18,7 +18,7 @@ import {JwtHelperService} from "@auth0/angular-jwt";
 @Injectable()
 export class AuthState {
 
-    constructor(private authService: UserService,
+    constructor(private authService: UsersService,
                 private jwtHelper: JwtHelperService) {
     }
 
@@ -34,12 +34,7 @@ export class AuthState {
 
     @Selector()
     static isAdmin(state: IAuthState) {
-        return state.roles === "Admin";
-    }
-
-    @Selector()
-    static isUserCustomer(state: IAuthState) {
-        return state.roles === "Customer";
+        return state.roles === "Admin" || state.roles === "SuperAdmin";
     }
 
     @Action(Login)

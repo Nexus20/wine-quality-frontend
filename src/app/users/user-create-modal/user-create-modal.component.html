@@ -1,0 +1,48 @@
+<h1 mat-dialog-title>{{'users.create.header' | translate}}</h1>
+<form [formGroup]="createForm" (ngSubmit)="createUser()">
+    <div mat-dialog-content>
+        <div>
+            <mat-form-field>
+                <mat-label>{{'users.firstname' | translate}}</mat-label>
+                <input matInput formControlName="firstName">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field>
+                <mat-label>{{'users.lastname' | translate}}</mat-label>
+                <input matInput formControlName="lastName">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field>
+                <mat-label>{{'users.email' | translate}}</mat-label>
+                <input matInput formControlName="email">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field>
+                <mat-label>{{'users.phone' | translate}}</mat-label>
+                <input matInput formControlName="phone">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field>
+                <mat-label>{{'users.password' | translate}}</mat-label>
+                <input matInput formControlName="password" type="password">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field>
+                <mat-label>{{'users.roles' | translate}}</mat-label>
+                <mat-select formControlName="rolesIds" multiple>
+                    <mat-option *ngFor="let role of roles" [value]="role.id">{{role.name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+    <div mat-dialog-actions>
+        <button mat-button (click)="cancel()">{{'common.cancel' | translate}}</button>
+        <button mat-raised-button color="primary" [disabled]="createForm.invalid"
+                type="submit">{{'common.confirm' | translate}}</button>
+    </div>
+</form>

@@ -10,14 +10,26 @@ import {RouterModule} from "@angular/router";
 import {SharedModule} from "../shared/shared.module";
 import {TranslateModule} from "@ngx-translate/core";
 import {MatTableModule} from "@angular/material/table";
-import { SessionExpiredModalComponent } from './session-expired-modal/session-expired-modal.component';
+import {SessionExpiredModalComponent} from './session-expired-modal/session-expired-modal.component';
 import {MatDialogModule} from "@angular/material/dialog";
+import {UsersComponent} from './users/users.component';
+import {usersResolver} from "./resolvers/user.resolvers";
+import { UserDetailsModalComponent } from './user-details-modal/user-details-modal.component';
+import { UserCreateModalComponent } from './user-create-modal/user-create-modal.component';
+import { UserEditModalComponent } from './user-edit-modal/user-edit-modal.component';
+import { UserDeleteModalComponent } from './user-delete-modal/user-delete-modal.component';
+import {MatSelectModule} from "@angular/material/select";
 
 
 @NgModule({
     declarations: [
         LoginComponent,
         SessionExpiredModalComponent,
+        UsersComponent,
+        UserDetailsModalComponent,
+        UserCreateModalComponent,
+        UserEditModalComponent,
+        UserDeleteModalComponent,
     ],
     imports: [
         CommonModule,
@@ -27,12 +39,14 @@ import {MatDialogModule} from "@angular/material/dialog";
         MatInputModule,
         ReactiveFormsModule,
         RouterModule.forChild([
+            {path: '', component: UsersComponent, resolve: {users: usersResolver}},
             {path: 'login', component: LoginComponent},
         ]),
         SharedModule,
         TranslateModule,
         MatTableModule,
         MatDialogModule,
+        MatSelectModule,
     ]
 })
 export class UsersModule {

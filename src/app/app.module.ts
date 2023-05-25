@@ -14,7 +14,7 @@ import {AuthState} from "./users/states/auth.state";
 import {NgxsStoragePluginModule} from "@ngxs/storage-plugin";
 import {JwtModule} from "@auth0/angular-jwt";
 import {InterceptorsModule} from "./core/interceptors/interceptors.module";
-import {UserService} from "./users/user.service";
+import {UsersService} from "./users/users.service";
 import {MatNativeDateModule} from "@angular/material/core";
 import {MatDialogModule} from "@angular/material/dialog";
 import {ProfileState} from "./profile/state/profile.state";
@@ -62,7 +62,7 @@ export function tokenGetter() {
         MatNativeDateModule,
         MatDialogModule
     ],
-    providers: [UserService],
+    providers: [UsersService],
     bootstrap: [AppComponent],
 })
 export class AppModule {

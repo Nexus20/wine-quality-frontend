@@ -1,0 +1,14 @@
+<h1 mat-dialog-title>{{ 'users.details.header' | translate }}</h1>
+<div mat-dialog-content>
+    <p><strong>{{ 'users.firstname' | translate }}:</strong> {{ userDetail.firstName }}</p>
+    <p><strong>{{ 'users.lastname' | translate }}:</strong> {{ userDetail.lastName }}</p>
+    <p><strong>{{ 'users.email' | translate }}:</strong> {{ userDetail.email }}</p>
+    <p><strong>{{ 'users.phone' | translate }}:</strong> {{ userDetail.phone }}</p>
+    <p><strong>{{ 'users.roles' | translate }}:</strong></p>
+    <ul>
+        <li *ngFor="let role of userDetail.roles">{{ role.name }}</li>
+    </ul>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="close()">{{'common.close' | translate}}</button>
+</div>

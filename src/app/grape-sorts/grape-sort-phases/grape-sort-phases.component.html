@@ -2,9 +2,14 @@
 <main>
     <div class="container">
         <div class="row mb-3">
+            <div class="col-12">
+                <h2>{{'grape-sorts.edit-phases.header' | translate}}</h2>
+            </div>
+        </div>
+        <div class="row mb-3">
             <div class="col-6">
                 <div class="available-phases">
-                    <h2>All available phases</h2>
+                    <h2>{{'grape-sorts.edit-phases.available-phases' | translate}}</h2>
                     <div cdkDropList [cdkDropListData]="availablePhases" class="phase-list"
                          (cdkDropListDropped)="drop($event)" #listOne="cdkDropList"
                          [cdkDropListConnectedTo]="[listTwo]">
@@ -18,7 +23,7 @@
             </div>
             <div class="col-6">
                 <div class="grape-sort-phases">
-                    <h2>Grape sort phases</h2>
+                    <h2>{{'grape-sorts.edit-phases.grape-sort-phases' | translate}}</h2>
                     <div cdkDropList [cdkDropListData]="grapeSortPhases" class="phase-list"
                          (cdkDropListDropped)="drop($event)" #listTwo="cdkDropList" [cdkDropListConnectedTo]="[listOne]">
                         <mat-list>
@@ -38,7 +43,7 @@
             <div class="col-12">
                 <div class="actions">
                     <button mat-raised-button color="primary" (click)="saveGrapeSort()" [disabled]="grapeSortPhases.length === 0 || isSaving">
-                        {{ isSaving ? 'Saving...' : 'Save' }}
+                        {{ (isSaving ? 'grape-sorts.edit-phases.saving' : 'grape-sorts.edit-phases.save') | translate }}
                     </button>
                 </div>
             </div>

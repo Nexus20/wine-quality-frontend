@@ -1,4 +1,5 @@
 import {IBaseResult} from "../../core/models/IBaseResult";
+import {IRoleResult} from "../../roles/models/role.result";
 
 export interface IUserResult extends IBaseResult {
     firstName: string;
@@ -6,4 +7,5 @@ export interface IUserResult extends IBaseResult {
     phone: string;
     email: string;
     selectedCulture: string;
+    roles: IRoleResult[];
 }

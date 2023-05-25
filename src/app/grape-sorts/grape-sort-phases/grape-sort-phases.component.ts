@@ -5,6 +5,7 @@ import {IGrapeSortPhaseResult} from "../models/grape-sort-result";
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from "@angular/cdk/drag-drop";
 import {GrapeSortsService} from "../services/grape-sorts.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-grape-sort-phases',
@@ -21,7 +22,8 @@ export class GrapeSortPhasesComponent implements OnInit {
 
     constructor(private activatedRoute: ActivatedRoute,
                 private grapeSortsService: GrapeSortsService,
-                private snackBar: MatSnackBar) {}
+                private snackBar: MatSnackBar,
+                private translateService: TranslateService) {}
 
     ngOnInit(): void {
         this.activatedRoute.params.subscribe(params => {
@@ -83,7 +85,9 @@ export class GrapeSortPhasesComponent implements OnInit {
 
         this.grapeSortsService.savePhasesOrder(request).subscribe(() => {
             this.isSaving = false;
-            this.showSnackbar('Phases order saved', 3000);
+            this.translateService.get('grape-sorts.edit-phases.saved').subscribe((message) => {
+                this.showSnackbar(message, 3000);
+            });
         });
     }
 

@@ -35,6 +35,7 @@
                                 <a mat-icon-button [routerLink]="[element.id]"><mat-icon>visibility</mat-icon></a>
                                 <button mat-icon-button color="accent" (click)="openEditDialog(element)"><mat-icon>edit</mat-icon></button>
                                 <button mat-icon-button color="warn" (click)="openDeleteDialog(element)"><mat-icon>delete</mat-icon></button>
+                                <a mat-button [routerLink]="[element.id + '/phases/edit']">{{'grape-sorts.edit-phases.button' | translate}}</a>
                             </td>
                         </ng-container>
 

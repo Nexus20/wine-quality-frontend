@@ -1,7 +1,7 @@
 import {Action, Selector, State, StateContext, Store} from "@ngxs/store";
 import {ProfileStateModel} from "./profile.state-model";
 import {Injectable} from "@angular/core";
-import {UserService} from "../../users/user.service";
+import {UsersService} from "../../users/users.service";
 import {ClearProfile, GetOwnProfile, SetLanguage} from "./profile.actions";
 import {tap} from "rxjs";
 import {environment} from "../../../environments/environment";
@@ -18,7 +18,8 @@ import {TranslateService} from "@ngx-translate/core";
             phone: '',
             selectedCulture: environment.defaultLocale,
             createdAt: new Date(),
-            updatedAt: new Date()
+            updatedAt: new Date(),
+            roles: []
         }
     }
 })
@@ -26,7 +27,7 @@ import {TranslateService} from "@ngx-translate/core";
 @Injectable()
 export class ProfileState {
 
-    constructor(private store: Store, private userService: UserService, private translateService: TranslateService) {
+    constructor(private store: Store, private userService: UsersService, private translateService: TranslateService) {
     }
 
     @Selector()
@@ -60,7 +61,8 @@ export class ProfileState {
             phone: '',
             selectedCulture: environment.defaultLocale,
             createdAt: new Date(),
-            updatedAt: new Date()
+            updatedAt: new Date(),
+            roles: []
         };
         ctx.setState(state);
     }

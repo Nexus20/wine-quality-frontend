@@ -8,7 +8,7 @@ import {IUserResult} from "./models/IUserResult";
 @Injectable({
     providedIn: 'root'
 })
-export class UserService {
+export class UsersService {
 
     private readonly api = environment.api;
 
@@ -21,8 +21,8 @@ export class UserService {
         });
     }
 
-    public register(payload: { firstname: string, lastname: string, phone: string, email: string, password: string, confirmPassword: string }): Observable<IUserResult> {
-        return this.httpClient.post<IUserResult>(`${this.api}auth/register`, payload);
+    public create(payload: any): Observable<IUserResult> {
+        return this.httpClient.post<IUserResult>(`${this.api}user`, payload);
     }
 
     public getOwnProfile() {
@@ -39,5 +39,13 @@ export class UserService {
 
     public setLanguage(id: string, newLanguage: string) {
         return this.httpClient.patch(`${this.api}user/${id}/set_language`, {newLanguage: newLanguage});
+    }
+
+    public delete(id: string) {
+        return this.httpClient.delete(`${this.api}user/${id}`);
+    }
+
+    public update(userToUpdate: { FirstName: any; Phone: any; Id: string; LastName: any }) {
+        return this.httpClient.put(`${this.api}user/${userToUpdate.Id}`, userToUpdate);
     }
 }

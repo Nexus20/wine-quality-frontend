@@ -9,6 +9,7 @@ import {SensorCreateModalComponent} from "../sensor-create-modal/sensor-create-m
 import {SensorDeleteModalComponent} from "../sensor-delete-modal/sensor-delete-modal.component";
 import {SignalrService} from "../../core/services/signalr.service";
 import {SensorStatusUpdatedMessage} from "../../core/models/IBaseResult";
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
     selector: 'app-sensors',
@@ -24,7 +25,8 @@ export class SensorsComponent implements OnInit {
                 private sensorsService: SensorsService,
                 private signalrService: SignalrService,
                 private clipboard: Clipboard,
-                private snackBar: MatSnackBar) {
+                private snackBar: MatSnackBar,
+                private translateService: TranslateService) {
     }
 
     ngOnInit(): void {
@@ -45,19 +47,24 @@ export class SensorsComponent implements OnInit {
 
     copyDeviceId(deviceId: string) {
         this.clipboard.copy(deviceId);
-        this.snackBar.open('Device id copied', '', {
-            duration: 3000,
-            horizontalPosition: 'right',
-            verticalPosition: 'bottom',
+
+        this.translateService.get('sensors.device-id-copied').subscribe((message: string) => {
+            this.snackBar.open(message, '', {
+                duration: 3000,
+                horizontalPosition: 'right',
+                verticalPosition: 'bottom',
+            });
         });
     }
 
     copyDeviceKey(deviceKey: string) {
         this.clipboard.copy(deviceKey);
-        this.snackBar.open('Device key copied', '', {
-            duration: 3000,
-            horizontalPosition: 'right',
-            verticalPosition: 'bottom',
+        this.translateService.get('sensors.device-key-copied').subscribe((message: string) => {
+            this.snackBar.open(message, '', {
+                duration: 3000,
+                horizontalPosition: 'right',
+                verticalPosition: 'bottom',
+            });
         });
     }
 
