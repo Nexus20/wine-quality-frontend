@@ -18,11 +18,18 @@
                             </mat-panel-title>
                         </mat-expansion-panel-header>
 
-                        <p>{{'wine-material-batch-phases.phase.parameters.standard' | translate}}: {{ parameterDetail.standard.lowerBound }}</p>
-                        <button mat-button (click)="openChartDialog(parameterDetail)">{{'wine-material-batch-phases.phase.parameters.show-chart' | translate}}</button>
+                        <p>{{'wine-material-batch-phases.phase.parameters.standard' | translate}}: {{ parameterDetail.standard.lowerBound }} ... {{ parameterDetail.standard.upperBound }}</p>
+                        <button mat-raised-button (click)="openChartDialog(parameterDetail)">{{'wine-material-batch-phases.phase.parameters.show-chart' | translate}}</button>
+                        <p>{{'wine-material-batch-phases.phase.sensors.header' | translate}}:</p>
                         <mat-list>
                             <mat-list-item *ngFor="let sensor of parameterDetail.sensors">
                                 {{ sensor.id }} ({{statuses[sensor.status]}}): {{ sensor.lastValue | number:'1.0-5' }}
+                                <ng-container *ngIf="sensor.status == DeviceStatus.Working">
+                                    <button mat-raised-button (click)="stopSensor(sensor)">{{'sensors.stop' | translate}}</button>
+                                </ng-container>
+                                <ng-container *ngIf="sensor.status == DeviceStatus.BoundariesUpdated || sensor.status == DeviceStatus.Stopped">
+                                    <button mat-raised-button (click)="startSensor(sensor)">{{'sensors.start' | translate}}</button>
+                                </ng-container>
                             </mat-list-item>
                         </mat-list>
                     </mat-expansion-panel>

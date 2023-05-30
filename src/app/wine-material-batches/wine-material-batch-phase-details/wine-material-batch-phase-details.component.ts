@@ -19,6 +19,7 @@ import {
 import {
     WineMaterialBatchPhaseParameterChartModalComponent
 } from "../wine-material-batch-phase-parameter-chart-modal/wine-material-batch-phase-parameter-chart-modal.component";
+import {DeviceStatus, ISensorResult} from "../../sensors/models/sensor-result";
 
 @Component({
     selector: 'app-wine-material-batch-phase-details',
@@ -147,5 +148,15 @@ export class WineMaterialBatchPhaseDetailsComponent implements OnInit {
             }
         });
 
+    }
+
+    protected readonly DeviceStatus = DeviceStatus;
+
+    stopSensor(sensor: ISensorResult) {
+        this.sensorsService.stop(sensor.id).subscribe();
+    }
+
+    startSensor(sensor: ISensorResult) {
+        this.sensorsService.start(sensor.id).subscribe();
     }
 }

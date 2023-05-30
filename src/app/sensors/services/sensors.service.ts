@@ -50,4 +50,12 @@ export class SensorsService {
     public getStatuses() {
         return this.httpClient.get<ISensorStatusResult[]>(`${this.api}sensor/statuses`);
     }
+
+    stop(id: string) {
+        return this.httpClient.post(`${this.api}sensor/${id}/stop`, {});
+    }
+
+    start(id: string) {
+        return this.httpClient.post(`${this.api}sensor/${id}/run`, {});
+    }
 }

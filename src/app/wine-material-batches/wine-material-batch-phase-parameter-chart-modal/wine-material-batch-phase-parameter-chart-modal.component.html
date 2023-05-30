@@ -1,14 +1,24 @@
-<h1 mat-dialog-title>Prediction details</h1>
+<h1 mat-dialog-title>{{'wine-material-batch-phases.phase.parameters.chart.header' | translate}}</h1>
 <div mat-dialog-content>
     <div>
         <mat-form-field>
-            <mat-label>Chart Type</mat-label>
+            <mat-label>{{'wine-material-batch-phases.phase.parameters.chart.chart-type' | translate}}</mat-label>
             <mat-select [(ngModel)]="selectedChartType" (selectionChange)="onChartTypeChange($event)">
                 <mat-option *ngFor="let chartType of chartTypes" [value]="chartType.value">
                     {{chartType.viewValue}}
                 </mat-option>
             </mat-select>
         </mat-form-field>
+    </div>
+    <div>
+        <ng-container *ngIf="!isStandardsShown">
+            <button mat-raised-button
+                    (click)="showStandardsAnnotations()">{{'wine-material-batch-phases.phase.parameters.chart.show-standards' | translate}}</button>
+        </ng-container>
+        <ng-container *ngIf="isStandardsShown">
+            <button mat-raised-button
+                    (click)="hideStandardsAnnotations()">{{'wine-material-batch-phases.phase.parameters.chart.hide-standards' | translate}}</button>
+        </ng-container>
     </div>
     <div style="display: block;">
         <canvas baseChart

@@ -225,7 +225,17 @@
             "parameters": {
                 "header": "Parameters",
                 "standard": "Standard",
-                "show-chart": "Show chart"
+                "show-chart": "Show chart",
+                "chart": {
+                    "header": "Parameter chart",
+                    "chart-type": "Chart type",
+                    "show-standards": "Show standards",
+                    "hide-standards": "Hide standards"
+                }
+            },
+            "sensors": {
+                "header": "Sensors",
+                "no-sensors": "No sensors have been assigned to this phase yet."
             }
         },
         "predict-quality": {
@@ -262,6 +272,8 @@
         "copy-device-key": "Copy device key",
         "device-key-copied": "Device key copied",
         "device-id-copied": "Device id copied",
+        "start": "Start",
+        "stop": "Stop",
         "details": {
             "header": "Sensor details",
             "no-phases": "This sensor hasn't been linked to any phase yet."

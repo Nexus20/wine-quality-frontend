@@ -28,6 +28,7 @@ export class WineMaterialBatchPhaseParameterChartModalComponent {
     ];
 
     public selectedChartType = 1000;
+    public isStandardsShown = false;
 
     // annotation plugin does not work
     public chartOptions: ChartOptions<'line'> = {
@@ -107,6 +108,79 @@ export class WineMaterialBatchPhaseParameterChartModalComponent {
             // // @ts-ignore
             // this.chartOptions.plugins["annotation"].annotations[1].yMin = this.data.parameterDetail.standard.lowerBound;
         });
+    }
+
+    hideStandardsAnnotations() {
+
+        this.chartOptions = {
+            responsive: true,
+            plugins: {
+                zoom: {
+                    pan: {
+                        enabled: true,
+                        mode: 'xy',
+                    },
+                    zoom: {
+                        wheel: {
+                            enabled: true,
+                        },
+                        pinch: {
+                            enabled: true,
+                        },
+                        mode: 'xy',
+                    }
+                }
+            }
+        };
+
+        this.isStandardsShown = false;
+        this.chart?.update();
+    }
+
+    showStandardsAnnotations() {
+        // @ts-ignore
+        this.chartOptions = {
+            responsive: true,
+            plugins: {
+                zoom: {
+                    pan: {
+                        enabled: true,
+                        mode: 'xy',
+                    },
+                    zoom: {
+                        wheel: {
+                            enabled: true,
+                        },
+                        pinch: {
+                            enabled: true,
+                        },
+                        mode: 'xy',
+                    }
+                },
+                // @ts-ignore
+                annotation: {
+                    annotations: [
+                        {
+                            type: 'line',
+                            yMin: this.data.parameterDetail.standard.upperBound,
+                            yMax: this.data.parameterDetail.standard.upperBound,
+                            borderColor: 'rgb(1,255,4)',
+                            borderWidth: 1,
+                        },
+                        {
+                            type: 'line',
+                            yMin: this.data.parameterDetail.standard.lowerBound,
+                            yMax: this.data.parameterDetail.standard.lowerBound,
+                            borderColor: 'rgb(255, 99, 132)',
+                            borderWidth: 1,
+                        }
+                    ]
+                }
+            }
+        };
+
+        this.isStandardsShown = true;
+        this.chart?.update();
     }
 
     onChartTypeChange($event: MatSelectChange) {

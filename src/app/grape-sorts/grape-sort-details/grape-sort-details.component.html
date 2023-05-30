@@ -22,10 +22,20 @@
                                     <p>{{'grape-sorts-phases.order' | translate}}: {{ phase.order }}</p>
                                     <p>{{'grape-sorts-phases.parameters' | translate}}:</p>
                                     <ul>
-                                        <li *ngFor="let standard of phase.grapeSortProcessPhaseParameterStandards">
-                                            <strong>{{ standard.parameterName }}:</strong> {{ standard.lowerBound }}
-                                            - {{ standard.upperBound }}
-                                        </li>
+
+                                        <ng-container *ngIf="phase.grapeSortProcessPhaseParameterStandards && phase.grapeSortProcessPhaseParameterStandards.length > 0; else noStandards">
+                                            <li *ngFor="let standard of phase.grapeSortProcessPhaseParameterStandards">
+                                                <strong>{{ standard.parameterName }}:</strong> {{ standard.lowerBound }}
+                                                - {{ standard.upperBound }}
+                                            </li>
+                                        </ng-container>
+                                        <ng-template #noStandards>
+                                            <li *ngFor="let parameter of phase.parameters">
+                                                <strong>{{ parameter.name }}</strong>
+                                            </li>
+                                        </ng-template>
+
+
                                     </ul>
                                     <button mat-raised-button (click)="openStandardSettingsDialog(phase)">
                                         {{'grape-sorts-phases.standards-settings' | translate}}
