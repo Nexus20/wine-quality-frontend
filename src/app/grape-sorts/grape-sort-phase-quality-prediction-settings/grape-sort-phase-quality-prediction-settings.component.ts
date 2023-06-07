@@ -22,8 +22,8 @@ export class GrapeSortPhaseQualityPredictionSettingsComponent implements OnInit 
 
     grapeSortDetails!: IGrapeSortDetailsResult;
     grapeSortPhase!: IGrapeSortPhaseResult;
-    datasets!: IGrapeSortPhaseDatasetResult[];
-    forecastModels!: IGrapeSortPhaseForecastModelResult[];
+    datasets: IGrapeSortPhaseDatasetResult[] = [];
+    forecastModels: IGrapeSortPhaseForecastModelResult[] = [];
 
     constructor(private activatedRoute: ActivatedRoute,
                 private dialog: MatDialog) {
@@ -67,9 +67,14 @@ export class GrapeSortPhaseQualityPredictionSettingsComponent implements OnInit 
             }
         });
 
-        dialogRef.afterClosed().subscribe((result) => {
+        dialogRef.afterClosed().subscribe((result : false | IGrapeSortPhaseForecastModelResult | IGrapeSortPhaseForecastModelResult[]) => {
+
             if (result) {
-                this.forecastModels = [result, ...this.forecastModels];
+                if(isArray(result)) {
+                    this.forecastModels = [...result, ...this.forecastModels];
+                } else {
+                    this.forecastModels = [result, ...this.forecastModels];
+                }
             }
         });
     }

@@ -12,7 +12,9 @@
         "updatedAt": "Updated at",
         "actions": "Actions",
         "close": "Close",
-        "cancel": "Cancel"
+        "cancel": "Cancel",
+        "back": "Back",
+        "save": "Save"
     },
     "header": {
         "brand": "Wine quality",
@@ -132,6 +134,14 @@
         "order": "Order",
         "parameters": "Parameters",
         "standards-settings": "Configure standards",
+        "standards-settings-modal": {
+            "header": "Configure standards for phase",
+            "select-parameter": "Select parameter",
+            "upper-bound": "Upper bound",
+            "lower-bound": "Lower bound",
+            "add-standard": "Add standard"
+        },
+        "go-to-details-button": "Go to sort details",
         "quality-prediction-settings": "Quality prediction settings"
     },
     "quality-prediction-settings": {
@@ -160,7 +170,8 @@
             "delete": {
                 "header": "Confirm model deletion",
                 "warning": "Are you sure you want to delete this model? This action cannot be undone."
-            }
+            },
+            "accuracy": "Accuracy"
         }
     },
     "wine-material-batches": {
@@ -171,12 +182,15 @@
         "harvest-location": "Harvest location",
         "phases": {
             "header": "Phases",
-            "edit": "Edit",
+            "edit": "Edit terms",
             "details": "Details",
             "sensors": "Sensors",
             "start-date": "Start date",
             "end-date": "End date",
             "assign-sensors": "Assign Sensors to this phase"
+        },
+        "phases-edit-modal": {
+            "header": "Edit wine material batch phases terms"
         },
         "active-phase": {
             "header": "Active phase",
@@ -203,6 +217,11 @@
         "delete": {
             "header": "Confirm wine material batch deletion",
             "warning": "Are you sure you want to delete this wine material batch? This action cannot be undone."
+        },
+        "start-process": {
+            "button": "Start process",
+            "header": "Confirm process start",
+            "warning": "Are you sure you want to start the process?"
         }
     },
     "wine-material-batch-phases": {

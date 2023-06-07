@@ -19,6 +19,7 @@ import {TranslateService} from "@ngx-translate/core";
 export class SensorsComponent implements OnInit {
     sensors: ISensorResult[] = [];
     displayedColumns: string[] = ['id', 'phaseName', 'parameterName', 'status', 'actions'];
+    statuses!: { [status: number]: string };
 
     constructor(private dialog: MatDialog,
                 private activatedRoute: ActivatedRoute,
@@ -33,6 +34,13 @@ export class SensorsComponent implements OnInit {
         this.activatedRoute.data.subscribe(({sensors}) => {
             this.sensors = sensors;
             console.log(sensors);
+
+            this.sensorsService.getStatuses().subscribe(result => {
+                this.statuses = result.reduce((map, statusObject) => {
+                    map[statusObject.status] = statusObject.value;
+                    return map;
+                }, {} as { [status: number]: string });
+            });
 
             this.signalrService.startConnection();
             this.signalrService.hubConnection.on(SensorStatusUpdatedMessage, (data) => {

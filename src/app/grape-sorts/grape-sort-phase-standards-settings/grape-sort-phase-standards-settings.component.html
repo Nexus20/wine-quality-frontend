@@ -1,34 +1,41 @@
-<h2 mat-dialog-title>Edit Phase Standards</h2>
+<h2 mat-dialog-title>{{ 'grape-sorts-phases.standards-settings-modal.header' | translate }}</h2>
 <mat-dialog-content>
     <div class="add-standard">
-        <mat-form-field>
-            <mat-label>Select a parameter</mat-label>
-            <mat-select [(value)]="selectedParameter">
-                <mat-option *ngFor="let parameter of availableParameters" [value]="parameter">
-                    {{ parameter.name }}
-                </mat-option>
-            </mat-select>
-        </mat-form-field>
-        <ng-container *ngIf="selectedParameter">
-            <mat-form-field appearance="fill" class="form-field">
-                <mat-label>Lower Bound</mat-label>
-                <input matInput type="number" [(ngModel)]="newStandardLowerBound">
+        <div>
+            <mat-form-field>
+                <mat-label>{{ 'grape-sorts-phases.standards-settings-modal.select-parameter' | translate }}</mat-label>
+                <mat-select [(value)]="selectedParameter">
+                    <mat-option *ngFor="let parameter of availableParameters" [value]="parameter">
+                        {{ parameter.name }}
+                    </mat-option>
+                </mat-select>
             </mat-form-field>
-            <mat-form-field appearance="fill" class="form-field">
-                <mat-label>Upper Bound</mat-label>
-                <input matInput type="number" [(ngModel)]="newStandardUpperBound">
-            </mat-form-field>
-        </ng-container>
-        <button mat-raised-button color="primary" (click)="addStandard()" [disabled]="!selectedParameter">Add standard</button>
+        </div>
+        <div>
+            <ng-container *ngIf="selectedParameter">
+                <mat-form-field appearance="fill" class="form-field">
+                    <mat-label>{{ 'grape-sorts-phases.standards-settings-modal.lower-bound' | translate }}</mat-label>
+                    <input matInput type="number" [(ngModel)]="newStandardLowerBound">
+                </mat-form-field>
+                <mat-form-field appearance="fill" class="form-field">
+                    <mat-label>{{ 'grape-sorts-phases.standards-settings-modal.upper-bound' | translate }}</mat-label>
+                    <input matInput type="number" [(ngModel)]="newStandardUpperBound">
+                </mat-form-field>
+            </ng-container>
+        </div>
+        <div>
+            <button mat-raised-button color="primary" (click)="addStandard()"
+                    [disabled]="!selectedParameter">{{ 'grape-sorts-phases.standards-settings-modal.add-standard' | translate }}</button>
+        </div>
     </div>
     <form [formGroup]="standardsForm">
         <div *ngFor="let standard of standards">
             <mat-form-field appearance="fill">
-                <mat-label>{{ standard.parameterName }} lower bound</mat-label>
+                <mat-label>{{ standard.parameterName }} {{ 'grape-sorts-phases.standards-settings-modal.lower-bound' | translate }} </mat-label>
                 <input matInput formControlName="lowerBound-{{ standard.id }}" type="number" step="0.01" required />
             </mat-form-field>
             <mat-form-field appearance="fill">
-                <mat-label>{{ standard.parameterName }} upper bound</mat-label>
+                <mat-label>{{ standard.parameterName }} {{ 'grape-sorts-phases.standards-settings-modal.upper-bound' | translate }} </mat-label>
                 <input matInput formControlName="upperBound-{{ standard.id }}" type="number" step="0.01" required />
             </mat-form-field>
         </div>
@@ -36,5 +43,5 @@
 </mat-dialog-content>
 <mat-dialog-actions>
     <button mat-button mat-dialog-close="true">{{'common.cancel' | translate}}</button>
-    <button mat-button (click)="save()">Save</button>
+    <button mat-button (click)="save()">{{'common.save' | translate}}</button>
 </mat-dialog-actions>

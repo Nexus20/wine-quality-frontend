@@ -35,6 +35,7 @@ import { WineMaterialBatchPhasePredictionHistoryComponent } from './wine-materia
 import { WineMaterialBatchPhaseParameterChartModalComponent } from './wine-material-batch-phase-parameter-chart-modal/wine-material-batch-phase-parameter-chart-modal.component';
 import {NgChartsModule} from "ng2-charts";
 import {TranslateModule} from "@ngx-translate/core";
+import { WineMaterialBatchStartPhaseModalComponent } from './wine-material-batch-start-phase-modal/wine-material-batch-start-phase-modal.component';
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import {TranslateModule} from "@ngx-translate/core";
         PredictQualityModalComponent,
         QualityPredictionDetailsModalComponent,
         WineMaterialBatchPhasePredictionHistoryComponent,
-        WineMaterialBatchPhaseParameterChartModalComponent
+        WineMaterialBatchPhaseParameterChartModalComponent,
+        WineMaterialBatchStartPhaseModalComponent
     ],
     imports: [
         CommonModule,

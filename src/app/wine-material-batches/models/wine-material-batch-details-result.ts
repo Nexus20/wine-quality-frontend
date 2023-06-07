@@ -39,7 +39,7 @@ export interface IWineMaterialBatchGrapeSortPhaseParameterResult extends IBaseRe
 export interface IWineMaterialBatchGrapeSortPhaseParameterDetailsResult extends IBaseResult {
     parameter: IParameterResult;
     sensors: ISensorResult[];
-    standard: IGrapeSortProcessPhaseParameterStandardResult;
+    standard: IGrapeSortProcessPhaseParameterStandardResult | null;
 }
 
 export interface IActiveWineMaterialBatchGrapeSortPhaseResult extends IWineMaterialBatchGrapeSortPhaseResult {

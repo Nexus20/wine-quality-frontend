@@ -17,7 +17,7 @@ export class GrapeSortPhasesComponent implements OnInit {
     allPhases: IPhaseResult[] = [];
     availablePhases: IPhaseResult[] = [];
     grapeSortPhases: IPhaseResult[] = [];
-    private grapeSortId!: string;
+    grapeSortId!: string;
     isSaving = false;
 
     constructor(private activatedRoute: ActivatedRoute,

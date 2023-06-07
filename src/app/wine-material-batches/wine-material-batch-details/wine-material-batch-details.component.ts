@@ -12,6 +12,11 @@ import {WineMaterialBatchesService} from "../services/wine-material-batches.serv
 import {
     WineMaterialBatchPhaseSensorsModalComponent
 } from "../wine-material-batch-phase-sensors-modal/wine-material-batch-phase-sensors-modal.component";
+import {
+    WineMaterialBatchStartPhaseModalComponent
+} from "../wine-material-batch-start-phase-modal/wine-material-batch-start-phase-modal.component";
+import {SignalrService} from "../../core/services/signalr.service";
+import {IReadingsMessage, ReadingsMessage, SensorStatusUpdatedMessage} from "../../core/models/IBaseResult";
 
 @Component({
   selector: 'app-wine-material-batch-details',
@@ -27,6 +32,7 @@ export class WineMaterialBatchDetailsComponent implements OnInit {
 
     constructor(private activatedRoute: ActivatedRoute,
                 private wineMaterialBatchesService: WineMaterialBatchesService,
+                private signalrService: SignalrService,
                 private dialog: MatDialog) {
     }
 
@@ -40,6 +46,27 @@ export class WineMaterialBatchDetailsComponent implements OnInit {
                     this.startProcessNotAllowedReasons = result.startNotAllowedReasons;
                 });
             }
+
+            this.signalrService.startConnection();
+
+            this.signalrService.hubConnection.on(ReadingsMessage, (data : IReadingsMessage) => {
+
+                if(this.wineMaterialBatchDetails.activePhase && this.wineMaterialBatchDetails.id == data.wineMaterialBatchId) {
+
+                    const reading = this.wineMaterialBatchDetails.activePhase.readings.find(x => x.parameterName == data.parameterName);
+
+                    if(reading) {
+                        reading.value = data.value.value;
+                    } else {
+                        this.wineMaterialBatchDetails.activePhase.readings.push({
+                            createdAt: data.createdAt,
+                            parameterName: data.parameterName,
+                            parameterId: data.parameterId,
+                            value: data.value.value
+                        });
+                    }
+                }
+            });
         })
     }
 
@@ -64,6 +91,36 @@ export class WineMaterialBatchDetailsComponent implements OnInit {
         dialogRef.afterClosed().subscribe(result => {
             if (result) {
 
+            }
+        });
+    }
+
+    openStartProcessModal() {
+
+        const dialogRef = this.dialog.open(WineMaterialBatchStartPhaseModalComponent, {
+            data: {
+                wineMaterialBatchId: this.wineMaterialBatchDetails.id,
+                wineMaterialBatchGrapeSortPhaseId: this.wineMaterialBatchDetails.phases.filter(x => x.phase.order == 1)[0].id,
+            }
+        });
+
+        dialogRef.afterClosed().subscribe(result => {
+            if (result) {
+                this.refreshData();
+            }
+        });
+    }
+
+    private refreshData() {
+        this.wineMaterialBatchesService.getDetailsById(this.wineMaterialBatchDetails.id).subscribe((result: IWineMaterialBatchDetailsResult) => {
+
+            this.wineMaterialBatchDetails = result;
+
+            if(!this.wineMaterialBatchDetails.phases.some(x => x.isActive)) {
+                this.wineMaterialBatchesService.checkIfProcessStartAllowed(this.wineMaterialBatchDetails.id).subscribe((result: IWineMaterialBatchProcessStartAllowedResult) => {
+                    this.startProcessAllowed = result.startAllowed;
+                    this.startProcessNotAllowedReasons = result.startNotAllowedReasons;
+                });
             }
         });
     }

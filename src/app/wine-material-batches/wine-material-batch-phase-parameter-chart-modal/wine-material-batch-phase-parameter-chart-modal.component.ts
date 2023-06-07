@@ -162,15 +162,15 @@ export class WineMaterialBatchPhaseParameterChartModalComponent {
                     annotations: [
                         {
                             type: 'line',
-                            yMin: this.data.parameterDetail.standard.upperBound,
-                            yMax: this.data.parameterDetail.standard.upperBound,
+                            yMin: this.data.parameterDetail.standard!.upperBound,
+                            yMax: this.data.parameterDetail.standard!.upperBound,
                             borderColor: 'rgb(1,255,4)',
                             borderWidth: 1,
                         },
                         {
                             type: 'line',
-                            yMin: this.data.parameterDetail.standard.lowerBound,
-                            yMax: this.data.parameterDetail.standard.lowerBound,
+                            yMin: this.data.parameterDetail.standard!.lowerBound,
+                            yMax: this.data.parameterDetail.standard!.lowerBound,
                             borderColor: 'rgb(255, 99, 132)',
                             borderWidth: 1,
                         }

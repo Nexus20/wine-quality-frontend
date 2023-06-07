@@ -19,7 +19,7 @@
 
                     <!-- Date column -->
                     <ng-container matColumnDef="date">
-                        <th mat-header-cell *matHeaderCellDef> {{'wine-material-batch-phases.prediction-history.prediction-date' | translate}}e </th>
+                        <th mat-header-cell *matHeaderCellDef> {{'wine-material-batch-phases.prediction-history.prediction-date' | translate}} </th>
                         <td mat-cell *matCellDef="let prediction"> {{prediction.createdAt | date}} </td>
                     </ng-container>
 

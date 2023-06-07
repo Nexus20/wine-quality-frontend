@@ -15,7 +15,7 @@ export class SignalrService {
 
     public startConnection = () => {
         this.hubConnection = new signalR.HubConnectionBuilder()
-            .withUrl('https://192.168.0.111:7110/wine-quality')
+            .withUrl('https://192.168.0.101:7110/wine-quality')
             .build();
 
         this.hubConnection

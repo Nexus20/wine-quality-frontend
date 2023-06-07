@@ -2,8 +2,7 @@ import {ActivatedRouteSnapshot, ResolveFn} from "@angular/router";
 import {inject} from "@angular/core";
 import {WineMaterialBatchesService} from "../services/wine-material-batches.service";
 import {
-    IWineMaterialBatchDetailsResult, IWineMaterialBatchGrapeSortPhaseDetailsResult,
-    IWineMaterialBatchGrapeSortPhaseResult
+    IWineMaterialBatchDetailsResult, IWineMaterialBatchGrapeSortPhaseDetailsResult
 } from "../models/wine-material-batch-details-result";
 import {IPredictionResult} from "../../grape-sorts/models/grape-sort-result";
 

@@ -20,8 +20,12 @@ export interface ISensorStatusUpdatedMessage {
 }
 
 export interface IReadingsMessage {
+    wineMaterialBatchId: string;
     deviceId: string;
     value: IWineMaterialBatchGrapeSortPhaseParameterValueResult;
+    parameterId: string;
+    parameterName: string;
+    createdAt: Date;
 }
 
 export const SensorStatusUpdatedMessage = 'SensorStatusUpdated';

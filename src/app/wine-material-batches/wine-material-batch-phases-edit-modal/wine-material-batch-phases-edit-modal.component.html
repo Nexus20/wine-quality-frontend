@@ -1,15 +1,15 @@
-<h2 mat-dialog-title>Edit Phases</h2>
+<h2 mat-dialog-title>{{'wine-material-batches.phases-edit-modal.header' | translate}}</h2>
 <mat-dialog-content>
     <div *ngFor="let phase of data;">
         <h4>{{ phase.phase.phaseName }}</h4>
         <mat-form-field appearance="fill">
-            <mat-label>Start Date</mat-label>
+            <mat-label>{{'wine-material-batches.phases.start-date' | translate}}</mat-label>
             <input matInput [matDatepicker]="startDatePicker" [(ngModel)]="phase.startDate">
             <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
             <mat-datepicker #startDatePicker></mat-datepicker>
         </mat-form-field>
         <mat-form-field appearance="fill">
-            <mat-label>End Date</mat-label>
+            <mat-label>{{'wine-material-batches.phases.end-date' | translate}}</mat-label>
             <input matInput [matDatepicker]="endDatePicker" [(ngModel)]="phase.endDate">
             <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
             <mat-datepicker #endDatePicker></mat-datepicker>

@@ -3,6 +3,9 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
+                <a mat-raised-button [routerLink]="['/grape-sorts/' + grapeSortDetails.id]">{{'common.back' | translate}}</a>
+            </div>
+            <div class="col-12">
                 <mat-tab-group>
                     <mat-tab label="{{'quality-prediction-settings.datasets.header' | translate}}">
                         <h2>{{'quality-prediction-settings.datasets.header' | translate}}</h2>
@@ -19,7 +22,7 @@
                         <h2>{{'quality-prediction-settings.models.header' | translate}}</h2>
                         <button mat-raised-button (click)="openTrainModelDialog()">{{'quality-prediction-settings.models.train.button' | translate}}</button>
                         <div *ngFor="let model of forecastModels">
-                            <h3> {{ model.accuracy }} </h3>
+                            <h3> {{'quality-prediction-settings.models.accuracy' | translate}} : {{ model.accuracy }} </h3>
                             <div>
                                 <a href="{{ model.modelUri }}">{{'quality-prediction-settings.models.download' | translate}}</a>
                             </div>

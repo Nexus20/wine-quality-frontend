@@ -90,4 +90,8 @@ export class WineMaterialBatchesService {
     }) {
         return this.httpClient.get<IWineMaterialBatchPhaseParameterChartDataResult>(`${this.api}wineMaterialBatch/phases/parameters/get_chart_data`, {params: requestBody});
     }
+
+    public startPhase(request: {WineMaterialBatchGrapeSortPhaseId: string; WineMaterialBatchId: string}) {
+        return this.httpClient.post(`${this.api}wineMaterialBatch/run_process_phase`, request);
+    }
 }

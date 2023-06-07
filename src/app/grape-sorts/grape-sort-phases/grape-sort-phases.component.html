@@ -5,6 +5,10 @@
             <div class="col-12">
                 <h2>{{'grape-sorts.edit-phases.header' | translate}}</h2>
             </div>
+            <div class="col-12">
+                <a mat-raised-button [routerLink]="['/grape-sorts/']">{{'common.back' | translate}}</a>
+                <a mat-raised-button [routerLink]="['/grape-sorts/' + grapeSortId]">{{'grape-sorts-phases.go-to-details-button' | translate}}</a>
+            </div>
         </div>
         <div class="row mb-3">
             <div class="col-6">

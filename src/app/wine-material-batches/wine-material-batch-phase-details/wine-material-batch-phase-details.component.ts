@@ -77,6 +77,9 @@ export class WineMaterialBatchPhaseDetailsComponent implements OnInit {
 
             this.signalrService.hubConnection.on(ReadingsMessage, (data : IReadingsMessage) => {
 
+                if(this.wineMaterialBatchDetails.id != data.wineMaterialBatchId)
+                    return;
+
                 for (const parameterDetails of this.wineMaterialBatchGrapeSortPhaseDetails.parametersDetails) {
 
                     const sensor = parameterDetails.sensors.find(x => x.id == data.deviceId);
@@ -85,7 +88,6 @@ export class WineMaterialBatchPhaseDetailsComponent implements OnInit {
                         sensor.lastValue = data.value.value;
                     }
                 }
-
             });
         });
     }
@@ -147,7 +149,6 @@ export class WineMaterialBatchPhaseDetailsComponent implements OnInit {
                 this.predictionResult = result;
             }
         });
-
     }
 
     protected readonly DeviceStatus = DeviceStatus;

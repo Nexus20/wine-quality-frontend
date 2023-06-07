@@ -3,6 +3,9 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
+                <a mat-raised-button [routerLink]="['/grape-sorts/' + wineMaterialBatchDetails.grapeSort.id]">{{'common.back' | translate}}</a>
+            </div>
+            <div class="col-12">
                 <div class="wine-material-batch-details">
                     <h2>{{ wineMaterialBatchDetails.name }}</h2>
                     <p>{{'wine-material-batches.harvest-date' | translate}}: {{ wineMaterialBatchDetails.harvestDate | date }}</p>
@@ -36,8 +39,8 @@
                 </section>
             </div>
             <div class="col-4 active-phase-section">
-                <h3>{{'wine-material-batches.active-phase.header' | translate}}</h3>
                 <ng-container *ngIf="wineMaterialBatchDetails.activePhase; else noActivePhase">
+                    <h3>{{'wine-material-batches.active-phase.header' | translate}}</h3>
                     <p>{{'wine-material-batches.active-phase.phase' | translate}}: {{ wineMaterialBatchDetails.activePhase.phase.phaseName }}</p>
                     <p>{{'wine-material-batches.active-phase.start-date' | translate}}: {{ wineMaterialBatchDetails.activePhase.startDate | date }}</p>
                     <p>{{'wine-material-batches.active-phase.end-date' | translate}}: {{ wineMaterialBatchDetails.activePhase.endDate | date }}</p>
@@ -47,7 +50,6 @@
                     </div>
                 </ng-container>
                 <ng-template #noActivePhase>
-                    <p>{{'wine-material-batches.no-active-phase.phase' | translate}}</p>
                     <div *ngIf="!startProcessAllowed">
                         <p>{{'wine-material-batches.no-active-phase.cannot-start-reasons' | translate}}:</p>
                         <ul>
@@ -56,6 +58,7 @@
                     </div>
                     <div *ngIf="startProcessAllowed">
                         <p>{{'wine-material-batches.no-active-phase.start-allowed' | translate}}.</p>
+                        <button mat-raised-button color="primary" (click)="openStartProcessModal()">{{'wine-material-batches.start-process.button' | translate}}</button>
                     </div>
                 </ng-template>
             </div>

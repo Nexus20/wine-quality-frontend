@@ -1,18 +1,18 @@
-<h1 mat-dialog-title>Edit WineMaterialBatch</h1>
+<h1 mat-dialog-title>{{'wine-material-batches.edit.header' | translate}}</h1>
 <form [formGroup]="editForm" (ngSubmit)="editWineMaterialBatch()">
     <div mat-dialog-content>
         <mat-form-field>
-            <mat-label>Name</mat-label>
+            <mat-label>{{'wine-material-batches.name' | translate}}</mat-label>
             <input matInput formControlName="name" />
         </mat-form-field>
         <mat-form-field>
-            <mat-label>Harvest Date</mat-label>
+            <mat-label>{{'wine-material-batches.harvest-date' | translate}}</mat-label>
             <input matInput [matDatepicker]="harvestDatePicker" formControlName="harvestDate" />
             <mat-datepicker-toggle matSuffix [for]="harvestDatePicker"></mat-datepicker-toggle>
             <mat-datepicker #harvestDatePicker></mat-datepicker>
         </mat-form-field>
         <mat-form-field>
-            <mat-label>Harvest Location</mat-label>
+            <mat-label>{{'wine-material-batches.harvest-location' | translate}}</mat-label>
             <input matInput formControlName="harvestLocation" />
         </mat-form-field>
     </div>

@@ -3,6 +3,9 @@
     <div class="container">
         <div class="row mb-3">
             <div class="col-12">
+                <a mat-raised-button [routerLink]="['/wine-material-batches/' + wineMaterialBatchDetails.id]">{{'common.back' | translate}}</a>
+            </div>
+            <div class="col-12">
                 <h1>{{ wineMaterialBatchDetails.name }}</h1>
                 <p>{{'wine-material-batches.grape-sort' | translate}}: {{ wineMaterialBatchDetails.grapeSort.name }}</p>
                 <p>{{'wine-material-batch-phases.phase.header' | translate}}: {{ wineMaterialBatchGrapeSortPhaseDetails.phase.phaseName }}</p>
@@ -18,8 +21,10 @@
                             </mat-panel-title>
                         </mat-expansion-panel-header>
 
-                        <p>{{'wine-material-batch-phases.phase.parameters.standard' | translate}}: {{ parameterDetail.standard.lowerBound }} ... {{ parameterDetail.standard.upperBound }}</p>
-                        <button mat-raised-button (click)="openChartDialog(parameterDetail)">{{'wine-material-batch-phases.phase.parameters.show-chart' | translate}}</button>
+                        <ng-container *ngIf="parameterDetail.standard">
+                            <p>{{'wine-material-batch-phases.phase.parameters.standard' | translate}}: {{ parameterDetail.standard.lowerBound }} ... {{ parameterDetail.standard.upperBound }}</p>
+                            <button mat-raised-button (click)="openChartDialog(parameterDetail)">{{'wine-material-batch-phases.phase.parameters.show-chart' | translate}}</button>
+                        </ng-container>
                         <p>{{'wine-material-batch-phases.phase.sensors.header' | translate}}:</p>
                         <mat-list>
                             <mat-list-item *ngFor="let sensor of parameterDetail.sensors">
@@ -36,7 +41,7 @@
                 </mat-accordion>
             </div>
             <div class="col-4">
-                <mat-card class="example-card">
+                <mat-card>
                     <mat-card-header>
                         <mat-card-title>{{'wine-material-batch-phases.phase-status.header' | translate}}</mat-card-title>
                     </mat-card-header>

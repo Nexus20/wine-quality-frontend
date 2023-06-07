@@ -12,7 +12,9 @@
         "updatedAt": "Оновлено",
         "actions": "Дії",
         "close": "Закрити",
-        "cancel": "Відміна"
+        "cancel": "Відміна",
+        "back": "Назад",
+        "save": "Зберегти"
     },
     "header": {
         "brand": "Wine quality",
@@ -132,6 +134,14 @@
         "order": "Порядок проходження",
         "parameters": "Параметри",
         "standards-settings": "Налаштувати стандарти",
+        "standards-settings-modal": {
+            "header": "Налаштувати стандарти для фази",
+            "select-parameter": "Оберіть параметр",
+            "upper-bound": "Верхня межа",
+            "lower-bound": "Нижня межа",
+            "add-standard": "Додати стандарт"
+        },
+        "go-to-details-button": "Детальна інформація про сорт",
         "quality-prediction-settings": "Налаштування передбачення якості"
     },
     "quality-prediction-settings": {
@@ -160,7 +170,8 @@
             "delete": {
                 "header": "Підтвердити видалення моделі",
                 "warning": "Ви впевнені, що хочете видалити цю модель? Цю дію не можна скасувати."
-            }
+            },
+            "accuracy": "Точність"
         }
     },
     "wine-material-batches": {
@@ -171,12 +182,15 @@
         "harvest-location": "Місце збору врожаю",
         "phases": {
             "header": "Фази",
-            "edit": "Редагувати",
+            "edit": "Редагувати терміни",
             "details": "Детальна інформація",
             "sensors": "Сенсори",
             "start-date": "Дата початку",
             "end-date": "Дата закінчення",
             "assign-sensors": "Призначити сенсори"
+        },
+        "phases-edit-modal": {
+            "header": "Налаштувати терміни фаз"
         },
         "active-phase": {
             "header": "Активна фаза",
@@ -203,6 +217,11 @@
         "delete": {
             "header": "Підтвердити видалення партії винограду",
             "warning": "Ви впевнені, що хочете видалити цю партію винограду? Цю дію не можна скасувати."
+        },
+        "start-process": {
+            "button": "Запустити процес",
+            "header": "Підтвердити запуск процесу",
+            "warning": "Ви впевнені, що хочете запустити процес?"
         }
     },
     "wine-material-batch-phases": {
